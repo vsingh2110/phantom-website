@@ -1,0 +1,251 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  /* background-color: #b5c5cf; */
+  /* scroll-behavior: smooth; */
+}
+
+body,
+html {
+  /* width: 100%;
+  height: 100%; */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+/* -----------------body---------------- */
+
+/* ----services----- */
+.service-packages-section {
+  margin-bottom: 2rem;
+}
+
+.service-packages-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 0.8em;
+  margin-bottom: 0.7em;
+}
+
+.service-packages-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.service-packages-box h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+.service-packages-box {
+  width: 30%;
+  text-align: center;
+}
+
+.service-packages-imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-packages-box h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.service-packages-box a {
+  display: block;
+  width: 40%;
+  height: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  padding: 0.2em;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+.service-packages-box a:hover {
+  background-color: rgb(7, 80, 139);
+}
+
+/* ----repairs----- */
+.repairs-section {
+  background-color: #efefef;
+}
+
+.repairs-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 0.8em;
+  margin-bottom: 0.7em;
+}
+
+.repairs-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.repairs-box h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+.repairs-box {
+  width: 30%;
+  text-align: center;
+}
+
+.repairs-imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.repairs-box h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.repairs-box a {
+  display: block;
+  width: 40%;
+  height: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  padding: 0.2em;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.repairs-box a:hover {
+  background-color: rgb(7, 80, 139);
+}
+
+/* --------Spare Parts and Inventory------ */
+.inventory-section {
+}
+
+.inventory-heading {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-top: 0.8em;
+  margin-bottom: 0.7em;
+}
+
+.inventory-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+}
+
+.inventory-box h2 {
+  font-weight: 600;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+.inventory-box {
+  width: 30%;
+  text-align: center;
+}
+.inventory-imgbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.inventory-box h3 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.inventory-box a {
+  display: block;
+  width: 40%;
+  height: 8%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  padding: 0.2em;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.inventory-box a:hover {
+  background-color: rgb(7, 80, 139);
+}
+
+/* _________________________________________Resposnive____________________________________________ */
+@media (max-width: 768px) {
+  .service-packages-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .service-packages-box {
+    width: 80%;
+    margin: 0;
+  }
+  .repairs-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .repairs-box {
+    width: 80%;
+    margin: 0;
+  }
+  .inventory-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .inventory-box {
+    width: 80%;
+    margin: 0;
+  }
+}

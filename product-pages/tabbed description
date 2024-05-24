@@ -1,0 +1,166 @@
+<style>
+  #my-tab h2 {
+    margin-top: 0;
+  }
+  #my-tab ul.tabs li a.active,
+  #my-tab ul.tabs li:last-child a {
+    border-top-right-radius: 2px;
+  }
+  #my-tab,
+  #my-tab ul.tabs:after {
+    clear: both;
+  }
+  #my-tab {
+    margin-top: 15px;
+    overflow: hidden;
+    display: block;
+  }
+  #my-tab ul.tabs {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  #my-tab ul.tabs li {
+    display: block;
+    float: left;
+    height: 45px;
+    margin-bottom: 0;
+    padding: 0;
+    width: auto;
+  }
+  #my-tab ul.tabs li a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #f5f5f5;
+    border-color: #ddd !important;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    display: block;
+    font-size: 15px;
+    height: 45px;
+    line-height: 30px;
+    margin: 0;
+    padding: 7px 12px;
+    text-decoration: none;
+    width: auto;
+    font-weight: 700;
+    color: #303030;
+    border-bottom: none !important;
+  }
+  #my-tab ul.tabs li a.active {
+    background: #fff;
+    border-left-width: 0;
+    border-top-left-radius: 2px;
+    color: #111;
+    height: 46px;
+  }
+  #my-tab ul.tabs li:first-child a.active {
+    margin-left: 0;
+  }
+  #my-tab ul.tabs li:first-child a {
+    border-top-left-radius: 2px;
+    border-width: 1px 1px 0;
+  }
+  #my-tab ul.tabs:before,
+  ul.tabs:after {
+    content: " ";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+  }
+  #tab-1,
+  #tab-2,
+  #tab-3,
+  #tab-4 {
+    border: 1px solid #e7e7e7;
+    border-top: 0;
+    padding: 25px 35px 35px;
+    min-height: 215px;
+  }
+  @media (max-width: 600px) {
+    #my-tab ul.tabs li {
+      width: 100%;
+      float: none;
+      display: block;
+    }
+    #my-tab ul.tabs,
+    #my-tab ul.tabs li {
+      height: auto;
+    }
+  }
+</style>
+<script
+  src="https://code.jquery.com/jquery-1.12.4.min.js"
+  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+  integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+  crossorigin="anonymous"
+></script>
+<script>
+  $(document).ready(function () {
+    $("ul.tabs").each(function () {
+      var t,
+        i,
+        a = $(this).find("a");
+      (t = a.first().addClass("active")),
+        (i = $(t.attr("href"))),
+        a.not(":first").each(function () {
+          $($(this).attr("href")).hide();
+        }),
+        $(this)
+          .find("a")
+          .click(function (a) {
+            return (
+              t.removeClass("active"),
+              i.hide(),
+              (t = $(this)),
+              (i = $($(this).attr("href"))),
+              t.addClass("active"),
+              i.show(),
+              !1
+            );
+          });
+    });
+  });
+</script>
+<div id="my-tab" class="my-tab">
+  <ul class="tabs">
+    <li><a href="#tab-1">Description</a></li>
+    <li><a href="#tab-2">Fabric</a></li>
+    <li><a href="#tab-3">Care</a></li>
+  </ul>
+  <div id="tab-1">
+    {{ product.description }}
+  </div>
+  <div id="tab-2">
+    {{ product.metafields.custom.material_provided1 }}
+  </div>
+  <div id="tab-3">
+    {{ product.metafields.custom.washing_instructions }}
+  </div>
+</div>
+
+
+<ul class="tabs">
+    <li><a href="#tab-1">Description</a></li>
+    <li><a href="#tab-2">Fabric</a></li>
+    <li><a href="#tab-3">Care</a></li>
+  </ul>
+  <div id="tab-1">
+  {{ product.description }}
+  </div>
+  <div id="tab-2">
+  {{ product.metafields.custom.material_provided1 }}
+  </div>
+  <div id="tab-3">
+  {{ product.metafields.custom.washing_instructions }}
+  </div>
