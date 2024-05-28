@@ -693,7 +693,7 @@ video {
 	-webkit-animation-name: zoomin;
   	-webkit-animation-duration: 40s;
   	animation-name: zoomin;
-  	animation-duration: 25s;
+  	animation-duration: 8s;
 }
 @-webkit-keyframes zoomin {
   from {transform: scale(1, 1);}
