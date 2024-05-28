@@ -338,31 +338,94 @@ function slidefun(n) {
 }
 
 
-const btns = document.querySelectorAll(".dot");
-const slides1 = document.querySelectorAll(".img-slider")
-const slides2 = document.querySelectorAll(".myslide")
+const slideshowContainer = document.querySelector('.slider');
 
-var sliderNav = function(manual){
+slideshowContainer.addEventListener('mouseenter', () => {
+    clearInterval(timer); // Pause slideshow on hover
+});
 
-    btns.forEach((btn)=>{
-       btn.classList.remove("active")
-    })
+slideshowContainer.addEventListener('mouseleave', () => {
+    resetTimer(); // Resume slideshow on mouse leave
+});
 
-    slides1.forEach((slide)=>{
-      slide.classList.remove("active")
-   })
 
-   slides2.forEach((slide)=>{
-    slide.classList.remove("active")
- })
 
-    btns[manual].classList.add("active")
-    slides1[manual].classList.add("active")
-    slides2[manual].classList.add("active")
-}
+  const slider = document.querySelector(".slider");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
+  const slides = document.querySelectorAll(".myslide");
+  const slideIcons = document.querySelectorAll(".dot");
+  const numberOfSlides = slides.length;
+  var slideNumber = 0;
 
-btns.forEach((btn, i)=>{
-  btn.addEventListener("click",()=>{
-    sliderNav(i)
-  })
-})
+  
+  nextBtn.addEventListener("click", () => {
+    slides.forEach((slide) => {
+      slide.classList.remove("active");
+    });
+    slideIcons.forEach((slideIcon) => {
+      slideIcon.classList.remove("active");
+    });
+
+    slideNumber++;
+
+    if(slideNumber > (numberOfSlides - 1)){
+      slideNumber = 0;
+    }
+
+    slides[slideNumber].classList.add("active");
+    slideIcons[slideNumber].classList.add("active");
+  });
+
+  
+  prevBtn.addEventListener("click", () => {
+    slides.forEach((slide) => {
+      slide.classList.remove("active");
+    });
+    slideIcons.forEach((slideIcon) => {
+      slideIcon.classList.remove("active");
+    });
+
+    slideNumber--;
+
+    if(slideNumber < 0){
+      slideNumber = numberOfSlides - 1;
+    }
+
+    slides[slideNumber].classList.add("active");
+    slideIcons[slideNumber].classList.add("active");
+  });
+
+ 
+  var playSlider;
+
+  var repeater = () => {
+    playSlider = setInterval(function(){
+      slides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
+      slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+      });
+
+      slideNumber++;
+
+      if(slideNumber > (numberOfSlides - 1)){
+        slideNumber = 0;
+      }
+
+      slides[slideNumber].classList.add("active");
+      slideIcons[slideNumber].classList.add("active");
+    }, 7000);
+  }
+  repeater();
+
+ 
+  slider.addEventListener("mouseover", () => {
+    clearInterval(playSlider);
+  });
+
+  
+  slider.addEventListener("mouseout", () => {
+    repeater();
+  });

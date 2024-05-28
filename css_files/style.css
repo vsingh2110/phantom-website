@@ -578,14 +578,15 @@ video {
 	position: relative;
 	width: 100%;
 	background-color: #00a7ff;
+  height: auto;
   /* darckblue */
 }
 .myslide{
 	display: none;
 	overflow: hidden;
-  height: 100%;
-  color: #00a7ff;
-  z-index: 5;
+  height: auto;
+  background-color: #00a7ff;
+  
 }
 
 .prev, .next{
@@ -609,7 +610,7 @@ video {
 	position: absolute;
 	left: 50%;
 	transform: translate(-50%);
-	bottom: 5%;
+	bottom: 1%;
 	cursor: pointer;
 }
 .dot{
@@ -629,7 +630,7 @@ video {
 }
 
 
-.dot.active{
+.dot.active1{
    background:#00a7ff ;
 }
 /* /javascript */
@@ -696,11 +697,10 @@ video {
   	-webkit-animation-duration: 40s;
   	animation-name: zoomin;
   	animation-duration: 8s;
-    z-index: 8;
     /* clip-path: circle(0% at 0 50%); */
 }
 
-.img-slider.active{
+.img-slider.active1{
 	clip-path: circle(150% at 0 50%);
   transition: 2s ease;
   transition-property: clip-path;
@@ -816,7 +816,135 @@ video {
 }
 
 
+@media screen and (max-width: 800px){
+	.txt{
+		letter-spacing: 2px;
+		line-height: 25px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-animation-name: posi2;
+		-webkit-animation-duration: 2s;
+		animation-name: posi2;
+		animation-duration: 2s;
+	}
 
+	@-webkit-keyframes posi2 {
+	  from {top: 35%;}
+	  to {top: 50%;}
+	}
+
+
+	@keyframes posi2 {
+	  from {top: 35%;}
+	  to {top: 50%;}
+	}
+
+	.txt h1{
+		font-size: 40px;
+	}
+	.txt p{
+		font-size: 13px;
+	}
+
+}
+
+
+
+
+
+/* -------text----1-------------- */
+
+.txt1{
+	position: absolute;
+  width:auto;
+	color: #fff;
+	
+	top: 70%;
+	left: 30%;
+	-webkit-animation-name: posi;
+  	-webkit-animation-duration: 2s;
+  	animation-name: posi;
+  	animation-duration: 2s;
+	z-index: 1;
+}
+
+@-webkit-keyframes posi {
+  from {bottom: 25%;}
+  to {bottom: 15%;}
+}
+
+
+@keyframes posi {
+  from {bottom: 25%;}
+  to {bottom: 15%;}
+}
+
+.txt1 h1{
+	color: #00a7ff; /* blue */
+  letter-spacing:0.5rem;
+	line-height: 2rem;
+	font-size: 50px;
+	margin-bottom: 20px;
+  text-align: center;
+}
+.txt1 p{
+	font-weight: bold;
+  letter-spacing:0.5rem;
+	line-height: 2rem;
+	font-size: 20px;
+  text-align: center;
+}
+
+
+
+@media screen and (max-width: 800px){
+	.txt1{
+		letter-spacing: 2px;
+		line-height: 25px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		-webkit-animation-name: posi2;
+		-webkit-animation-duration: 2s;
+		animation-name: posi2;
+		animation-duration: 2s;
+	}
+
+	@-webkit-keyframes posi2 {
+	  from {top: 35%;}
+	  to {top: 50%;}
+	}
+
+
+	@keyframes posi2 {
+	  from {top: 35%;}
+	  to {top: 50%;}
+	}
+
+	.txt1 h1{
+		font-size: 40px;
+	}
+	.txt1 p{
+		font-size: 13px;
+	}
+
+}
+
+
+
+@media screen and (max-width: 520px){
+	.txt1 h1{
+		font-size: 30px;
+		margin-bottom: 20px;
+	}
+
+  .txt1 p{
+		font-size: 13px;
+	}
+
+
+}
 
 
 
