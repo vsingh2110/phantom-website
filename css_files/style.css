@@ -625,6 +625,11 @@ video {
 .active, .dot:hover{
 	border-color: #00a7ff; /* blue */
 }
+
+
+.dot.active{
+  
+}
 /* /javascript */
 
 /* muslide add fade */

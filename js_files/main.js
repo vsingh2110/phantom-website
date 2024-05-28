@@ -298,7 +298,7 @@ submitButton.addEventListener("click", (e) => {
 let counter = 1;
 slidefun(counter);
 
-let timer = setInterval(autoSlide, 8000);
+let timer = setInterval(autoSlide, 7000);
 function autoSlide() {
 	counter += 1;
 	slidefun(counter);
@@ -315,7 +315,7 @@ function currentSlide(n) {
 }
 function resetTimer() {
 	clearInterval(timer);
-	timer = setInterval(autoSlide, 8000);
+	timer = setInterval(autoSlide, 7000);
 }
 
 function slidefun(n) {
@@ -336,3 +336,16 @@ function slidefun(n) {
 	myslide[counter - 1].style.display = "block";
 	dot[counter - 1].className += " active";
 }
+
+
+const btns = document.querySelectorAll(".dot");
+
+var sliderNav = function(manual){
+    btns[manual].classList.add("active")
+}
+
+btns.forEach((btn, i)=>{
+  btn.addEventListener("click",()=>{
+    sliderNav(i)
+  })
+})
