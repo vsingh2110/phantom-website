@@ -339,9 +339,26 @@ function slidefun(n) {
 
 
 const btns = document.querySelectorAll(".dot");
+const slides1 = document.querySelectorAll(".img-slider")
+const slides2 = document.querySelectorAll(".myslide")
 
 var sliderNav = function(manual){
+
+    btns.forEach((btn)=>{
+       btn.classList.remove("active")
+    })
+
+    slides1.forEach((slide)=>{
+      slide.classList.remove("active")
+   })
+
+   slides2.forEach((slide)=>{
+    slide.classList.remove("active")
+ })
+
     btns[manual].classList.add("active")
+    slides1[manual].classList.add("active")
+    slides2[manual].classList.add("active")
 }
 
 btns.forEach((btn, i)=>{

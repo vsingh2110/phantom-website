@@ -577,13 +577,15 @@ video {
 .slider{
 	position: relative;
 	width: 100%;
-	color: #00a7ff;
+	background-color: #00a7ff;
   /* darckblue */
 }
 .myslide{
 	display: none;
 	overflow: hidden;
   height: 100%;
+  color: #00a7ff;
+  z-index: 5;
 }
 
 .prev, .next{
@@ -628,7 +630,7 @@ video {
 
 
 .dot.active{
-  
+   background:#00a7ff ;
 }
 /* /javascript */
 
@@ -694,7 +696,17 @@ video {
   	-webkit-animation-duration: 40s;
   	animation-name: zoomin;
   	animation-duration: 8s;
+    z-index: 8;
+    /* clip-path: circle(0% at 0 50%); */
 }
+
+.img-slider.active{
+	clip-path: circle(150% at 0 50%);
+  transition: 2s ease;
+  transition-property: clip-path;
+
+}
+
 @-webkit-keyframes zoomin {
   from {transform: scale(1, 1);}
   to {transform: scale(1.5, 1.5);}
@@ -709,8 +721,8 @@ video {
 
 .video-bg {
 
-  width: 118%;
-  height: 118%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   filter: brightness(30%);
 
