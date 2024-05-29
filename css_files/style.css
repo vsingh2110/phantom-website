@@ -805,16 +805,15 @@ video {
   .prev, .next{
     font-size: 3rem;
   }
-	.txt{
-		letter-spacing: 2px;
-		
-		top: 50%;
+	.txt{		
+		top: 80%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		-webkit-animation-name: posi2;
 		-webkit-animation-duration: 2s;
 		animation-name: posi2;
 		animation-duration: 2s;
+    text-align: center;
 	}
 
 	@-webkit-keyframes posi2 {
@@ -859,9 +858,21 @@ video {
 
 
 @media screen and (max-width: 520px){
-	.txt h1{
-		font-size: 3.5rem;
+	
+  .txt{
+  }
+  
+  
+  .txt h1{
+		font-size: 3rem;
 		margin-bottom: 20px;
+	}
+
+  .txt p{
+		font-size: 13px;
+    line-height: normal;
+    letter-spacing: normal;
+    width:120%
 	}
 	.sign{
 		margin-right: 20px;
@@ -883,18 +894,19 @@ video {
   }
 }
 
-
+/* 
 @media screen and (max-width: 800px){
 	.txt{
 		letter-spacing: 2px;
 		line-height: 35px;
-		top: 50%;
+		top: 80%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		-webkit-animation-name: posi2;
 		-webkit-animation-duration: 2s;
 		animation-name: posi2;
 		animation-duration: 2s;
+    text-align: center;
 	}
 
 	@-webkit-keyframes posi2 {
@@ -915,7 +927,7 @@ video {
 		font-size: 13px;
 	}
 
-}
+} */
 
 
 
@@ -992,9 +1004,13 @@ video {
   }
 
 	.txt1 h1{
+    letter-spacing: 2px;
+		line-height: 35px;
 		font-size: 3.5rem;
 	}
 	.txt1 p{
+    letter-spacing: 2px;
+		line-height: normal;
 		font-size: 1rem;
 	}
 
@@ -1004,6 +1020,8 @@ video {
 
 @media screen and (max-width: 520px){
 	.txt1 h1{
+    letter-spacing: 2px;
+		line-height: 35px;
 		font-size: 30px;
 		margin-bottom: 20px;
 	}
