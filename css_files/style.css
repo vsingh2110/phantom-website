@@ -467,6 +467,36 @@ a.sociali:focus {
   width: 62%;
 }
 
+/* ----------------------marqueeee----------------------- */
+
+
+
+.main-marq {
+  text-align: center;
+}
+
+.marq {
+  
+}
+
+.geek1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #259ae1;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+
+
 /* ------------------hero section ----------------------- */
 
 .hero-section {
