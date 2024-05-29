@@ -246,6 +246,7 @@ dialog::backdrop {
 }
 
 .floating-call-timing {
+  display:none;
   top: 82.5%;
   z-index: 5;
   position: fixed;
@@ -754,6 +755,7 @@ video {
   letter-spacing: 0px;
 	line-height: 35px;
 	margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000000;
 }
 .txt p{
   color:#A0EB36;
@@ -974,6 +976,7 @@ video {
 	font-size: 3rem;
 	margin-bottom: 20px;
   text-align: center;
+  text-shadow: 2px 2px 4px #000000;
 }
 .txt1 p{
 	font-weight: bold;
@@ -2986,6 +2989,7 @@ dialog::backdrop {
 } */
 
 .floating-call-timing {
+  display: none;
   top: 80.5%;
   z-index: 5;
   position: fixed;
