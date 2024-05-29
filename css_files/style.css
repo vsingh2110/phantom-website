@@ -106,16 +106,16 @@ html {
 
 .floating-brochure{
   top: 20%; 
-  right: 0.9%;
+  right: 5.9%;
   z-index: 5;
   position: fixed;
   /* background-color: #259ae1; */
-  width: 7rem;
-  height: 7rem;
+  width: 0rem;
+  height: 0rem;
   margin-left: 1.5rem;
   border-radius: 5rem;
   text-align: center;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: white;
 }
 
@@ -749,17 +749,20 @@ video {
 }
 
 .txt h1{
-	color: #014c74; /* blue */
+	color: white; /* blue */
 	font-size: 4rem;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
 	line-height: 35px;
 	margin-bottom: 20px;
 }
 .txt p{
+  color:#A0EB36;
 	font-weight: bold;
   letter-spacing: 2px;
 	line-height: 25px;
 	font-size: 2rem;
+  font-weight: 500;
+  
 }
 
 
@@ -965,9 +968,9 @@ video {
 }
 
 .txt1 h1{
-	color: #014c74; /* blue */
+	color:white; /* blue */
   letter-spacing:0rem;
-	line-height: 2.5rem;
+	line-height: 2.8rem;
 	font-size: 3rem;
 	margin-bottom: 20px;
   text-align: center;
@@ -978,6 +981,8 @@ video {
 	line-height: 2rem;
 	font-size: 20px;
   text-align: center;
+  color:#A0EB36;
+  font-weight: 500;
 }
 
 
@@ -2830,12 +2835,12 @@ a.sociali-footer:focus {
 
 .floating-brochure{
   top: 25%; 
-  right: -0.5%;
+  right: 4.5%;
   z-index: 5;
   position: fixed;
   /* background-color: #259ae1; */
-  width: 7rem;
-  height: 7rem;
+  width: 3rem;
+  height: 3rem;
   /* margin-left: 1rem; */
   border-radius: 5rem;
   text-align: center;
