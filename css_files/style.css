@@ -581,13 +581,31 @@ video {
   height: auto;
   /* darckblue */
 }
-.myslide{
+
+
+
+ .myslide{
 	display: none;
+  /* position: absolute; */
+  /* background-color: #00a7ff; */
+  transition: opacity 0.5s ease;
 	overflow: hidden;
   height: auto;
-  background-color: #00a7ff;
+  /* clip-path: circle(0% at 0 50%); */
+  /* opacity: 0; */
+  /* transition: clip-path 0.2s ease; */
   
 }
+
+.myslide.active{
+  opacity: 1;
+  display: block;
+	/* clip-path: circle(150% at 0 50%); */
+  /* transition: 2s ease;
+  transition-property: clip-path; */
+
+}
+
 
 .prev, .next{
 	position: absolute;
@@ -613,6 +631,22 @@ video {
 	bottom: 1%;
 	cursor: pointer;
 }
+
+.play-pause{
+  position: absolute;
+	left: 65%;
+	transform: translate(-50%);
+	bottom: 2%;
+	cursor: pointer;
+  color:white;
+}
+
+.play-btn , .pause-btn{
+ margin: 0rem 1rem;
+
+}
+
+
 .dot{
 	display: inline-block;
 	width: 15px;
@@ -629,7 +663,7 @@ video {
 	border-color: #00a7ff; /* blue */
 }
 
-
+/* --active1-- */
 .dot.active1{
    background:#00a7ff ;
 }
@@ -644,14 +678,35 @@ video {
 }
 
 @-webkit-keyframes fade {
-  from {opacity: 0.8}
-  to {opacity: 1}
+  from { opacity: 0.4; }
+  to { opacity: 1; }
 }
 
 @keyframes fade {
-  from {opacity: 0.8}
-  to {opacity: 1}
+  from { opacity: 0.4; }
+  to { opacity: 1; }
 }
+
+
+/* .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from { clip-path: circle(0% at 0 50%);; }
+  to { clip-path: circle(150% at 0 50%); }
+}
+
+@keyframes fade {
+  from { clip-path: circle(0% at 0 50%); }
+  to { clip-path: circle(150% at 0 50%); }
+} */
+
+
+
 /* /muslide add fade */
 
 /* 3 */
@@ -697,15 +752,10 @@ video {
   	-webkit-animation-duration: 40s;
   	animation-name: zoomin;
   	animation-duration: 8s;
-    /* clip-path: circle(0% at 0 50%); */
+  
 }
 
-.img-slider.active1{
-	clip-path: circle(150% at 0 50%);
-  transition: 2s ease;
-  transition-property: clip-path;
 
-}
 
 @-webkit-keyframes zoomin {
   from {transform: scale(1, 1);}
@@ -855,36 +905,37 @@ video {
 
 /* -------text----1-------------- */
 
-.txt1{
-	position: absolute;
-  width:auto;
-	color: #fff;
-	
-	top: 70%;
-	left: 30%;
-	-webkit-animation-name: posi;
-  	-webkit-animation-duration: 2s;
-  	animation-name: posi;
-  	animation-duration: 2s;
-	z-index: 1;
+.txt1 {
+  position: absolute;
+  width: auto;
+  color: #fff;
+  top: 62%;
+  left: 50%;
+  -webkit-animation-name: positxt1;
+  -webkit-animation-duration: 2s;
+  animation-name: positxt1;
+  animation-duration: 2s;
+  z-index: 1;
+  transform: translate(-50%, 50%);
+  width: 73%;
 }
 
-@-webkit-keyframes posi {
+@-webkit-keyframes positxt1 {
   from {bottom: 25%;}
   to {bottom: 15%;}
 }
 
 
-@keyframes posi {
+@keyframes positxt1 {
   from {bottom: 25%;}
   to {bottom: 15%;}
 }
 
 .txt1 h1{
 	color: #00a7ff; /* blue */
-  letter-spacing:0.5rem;
-	line-height: 2rem;
-	font-size: 50px;
+  letter-spacing:0rem;
+	line-height: 2.5rem;
+	font-size: 3rem;
 	margin-bottom: 20px;
   text-align: center;
 }
@@ -902,31 +953,31 @@ video {
 	.txt1{
 		letter-spacing: 2px;
 		line-height: 25px;
-		top: 50%;
+		top: 70%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		-webkit-animation-name: posi2;
+		-webkit-animation-name: positxt2;
 		-webkit-animation-duration: 2s;
-		animation-name: posi2;
+		animation-name: positxt2;
 		animation-duration: 2s;
 	}
 
-	@-webkit-keyframes posi2 {
-	  from {top: 35%;}
-	  to {top: 50%;}
-	}
-
-
-	@keyframes posi2 {
-	  from {top: 35%;}
-	  to {top: 50%;}
-	}
+	@-webkit-keyframes positxt2 {
+    from {bottom: 25%;}
+    to {bottom: 15%;}
+  }
+  
+  
+  @keyframes positxt2 {
+    from {bottom: 25%;}
+    to {bottom: 15%;}
+  }
 
 	.txt1 h1{
-		font-size: 40px;
+		
 	}
 	.txt1 p{
-		font-size: 13px;
+		
 	}
 
 }

@@ -293,139 +293,146 @@ submitButton.addEventListener("click", (e) => {
     // --------------------------sliders-------------------------
 
 
-    const myslide = document.querySelectorAll('.myslide'),
-	  dot = document.querySelectorAll('.dot');
-let counter = 1;
-slidefun(counter);
+    const myslides = document.querySelectorAll('.myslide'); // Selecting all elements with class 'myslide'
+    const dots = document.querySelectorAll('.dot');
+    let counter = 0; // Initialize counter to 0 for the first slide
+    
+    slidefun(counter);
+    
+    let timer = setInterval(autoSlide, 7000);
+    
+    function autoSlide() {
+        counter = (counter + 1) % myslides.length; // Loop through slides
+        slidefun(counter);
+    }
+    
+    function plusSlides(n) {
+        counter = (counter + n + myslides.length) % myslides.length; // Loop through slides
+        slidefun(counter);
+        resetTimer();
+    }
+    
+    function currentSlide(n) {
+        counter = n - 1; // Adjust counter to match array index
+        slidefun(counter);
+        resetTimer();
+    }
+    
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(autoSlide, 7000);
+    }
+    
+    function slidefun(n) {
+        for (let i = 0; i < myslides.length; i++) {
+            myslides[i].classList.remove('active');
+            myslides[i].classList.add('fade');
+        }
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove('active');
+        }
+        myslides[n].classList.add('active');
+        myslides[n].classList.add('fade');
+        dots[n].classList.add('active');
+    }
+    
+    const slideshowContainer = document.querySelector('.slider');
+    
+    slideshowContainer.addEventListener('mouseenter', () => {
+        clearInterval(timer); // Pause slideshow on hover
+    });
+    
+    slideshowContainer.addEventListener('mouseleave', () => {
+        resetTimer(); // Resume slideshow on mouse leave
+    });
+    
+    const playButton = document.querySelector('.play-btn');
+    const pauseButton = document.querySelector('.pause-btn');
+    
+    playButton.addEventListener('click', () => {
+        timer = setInterval(autoSlide, 7000); // Start slideshow
+    });
+    
+    pauseButton.addEventListener('click', () => {
+        clearInterval(timer); // Pause slideshow
+    });
 
-let timer = setInterval(autoSlide, 7000);
-function autoSlide() {
-	counter += 1;
-	slidefun(counter);
-}
-function plusSlides(n) {
-	counter += n;
-	slidefun(counter);
-	resetTimer();
-}
-function currentSlide(n) {
-	counter = n;
-	slidefun(counter);
-	resetTimer();
-}
-function resetTimer() {
-	clearInterval(timer);
-	timer = setInterval(autoSlide, 7000);
-}
-
-function slidefun(n) {
-	
-	let i;
-	for(i = 0;i<myslide.length;i++){
-		myslide[i].style.display = "none";
-	}
-	for(i = 0;i<dot.length;i++) {
-		dot[i].className = dot[i].className.replace(' active', '');
-	}
-	if(n > myslide.length){
-	   counter = 1;
-	   }
-	if(n < 1){
-	   counter = myslide.length;
-	   }
-	myslide[counter - 1].style.display = "block";
-	dot[counter - 1].className += " active";
-}
-
-
-const slideshowContainer = document.querySelector('.slider');
-
-slideshowContainer.addEventListener('mouseenter', () => {
-    clearInterval(timer); // Pause slideshow on hover
-});
-
-slideshowContainer.addEventListener('mouseleave', () => {
-    resetTimer(); // Resume slideshow on mouse leave
-});
-
-
-
-  const slider = document.querySelector(".slider");
-  const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector(".prev");
-  const slides = document.querySelectorAll(".myslide");
-  const slideIcons = document.querySelectorAll(".dot");
-  const numberOfSlides = slides.length;
-  var slideNumber = 0;
+  // const slider = document.querySelector(".slider");
+  // const nextBtn = document.querySelector(".next");
+  // const prevBtn = document.querySelector(".prev");
+  // const slides = document.querySelectorAll(".myslide");
+  // const slideIcons = document.querySelectorAll(".dot");
+  // const numberOfSlides = slides.length;
+  // var slideNumber = 0;
 
   
-  nextBtn.addEventListener("click", () => {
-    slides.forEach((slide) => {
-      slide.classList.remove("active");
-    });
-    slideIcons.forEach((slideIcon) => {
-      slideIcon.classList.remove("active");
-    });
+  // nextBtn.addEventListener("click", () => {
+  //   slides.forEach((slide) => {
+  //     slide.classList.remove("active");
+  //   });
+  //   slideIcons.forEach((slideIcon) => {
+  //     slideIcon.classList.remove("active");
+  //   });
 
-    slideNumber++;
+  //   slideNumber++;
 
-    if(slideNumber > (numberOfSlides - 1)){
-      slideNumber = 0;
-    }
+  //   if(slideNumber > (numberOfSlides - 1)){
+  //     slideNumber = 0;
+  //   }
 
-    slides[slideNumber].classList.add("active");
-    slideIcons[slideNumber].classList.add("active");
-  });
+  //   slides[slideNumber].classList.add("active");
+  //   slideIcons[slideNumber].classList.add("active");
+  // });
 
   
-  prevBtn.addEventListener("click", () => {
-    slides.forEach((slide) => {
-      slide.classList.remove("active");
-    });
-    slideIcons.forEach((slideIcon) => {
-      slideIcon.classList.remove("active");
-    });
+  // prevBtn.addEventListener("click", () => {
+  //   slides.forEach((slide) => {
+  //     slide.classList.remove("active");
+  //   });
+  //   slideIcons.forEach((slideIcon) => {
+  //     slideIcon.classList.remove("active");
+  //   });
 
-    slideNumber--;
+  //   slideNumber--;
 
-    if(slideNumber < 0){
-      slideNumber = numberOfSlides - 1;
-    }
+  //   if(slideNumber < 0){
+  //     slideNumber = numberOfSlides - 1;
+  //   }
 
-    slides[slideNumber].classList.add("active");
-    slideIcons[slideNumber].classList.add("active");
-  });
+  //   slides[slideNumber].classList.add("active");
+  //   slideIcons[slideNumber].classList.add("active");
+  // });
 
  
-  var playSlider;
+  // var playSlider;
 
-  var repeater = () => {
-    playSlider = setInterval(function(){
-      slides.forEach((slide) => {
-        slide.classList.remove("active");
-      });
-      slideIcons.forEach((slideIcon) => {
-        slideIcon.classList.remove("active");
-      });
+  // var repeater = () => {
+  //   playSlider = setInterval(function(){
+  //     slides.forEach((slide) => {
+  //       slide.classList.remove("active");
+  //     });
+  //     slideIcons.forEach((slideIcon) => {
+  //       slideIcon.classList.remove("active");
+  //     });
 
-      slideNumber++;
+  //     slideNumber++;
 
-      if(slideNumber > (numberOfSlides - 1)){
-        slideNumber = 0;
-      }
+  //     if(slideNumber > (numberOfSlides - 1)){
+  //       slideNumber = 0;
+  //     }
 
-      slides[slideNumber].classList.add("active");
-      slideIcons[slideNumber].classList.add("active");
-    }, 7000);
-  }
-  repeater();
+  //     slides[slideNumber].classList.add("active");
+  //     slideIcons[slideNumber].classList.add("active");
+  //   }, 7000);
+  // }
+  // repeater();
 
  
-  slider.addEventListener("mouseover", () => {
-    clearInterval(playSlider);
-  });
+  // slider.addEventListener("mouseover", () => {
+  //   clearInterval(playSlider);
+  // });
 
   
-  slider.addEventListener("mouseout", () => {
-    repeater();
-  });
+  // slider.addEventListener("mouseout", () => {
+  //   repeater();
+  // });
