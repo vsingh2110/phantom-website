@@ -641,11 +641,23 @@ video {
   color:white;
 }
 
+
+
 .play-btn , .pause-btn{
  margin: 0rem 1rem;
 
 }
 
+@media screen  and (max-width: 800px) {
+  .play-pause{
+    left: 85%;
+  }
+
+  .play-btn , .pause-btn{
+    margin: 0rem 0.2rem;
+   
+   }
+}
 
 .dot{
 	display: inline-block;
@@ -736,13 +748,17 @@ video {
 }
 
 .txt h1{
-	color: #00a7ff; /* blue */
-	font-size: 50px;
+	color: #014c74; /* blue */
+	font-size: 4rem;
+  letter-spacing: 2px;
+	line-height: 35px;
 	margin-bottom: 20px;
 }
 .txt p{
 	font-weight: bold;
-	font-size: 20px;
+  letter-spacing: 2px;
+	line-height: 25px;
+	font-size: 2rem;
 }
 
 
@@ -791,7 +807,7 @@ video {
   }
 	.txt{
 		letter-spacing: 2px;
-		line-height: 25px;
+		
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -802,21 +818,23 @@ video {
 	}
 
 	@-webkit-keyframes posi2 {
-	  from {top: 35%;}
-	  to {top: 50%;}
+	  from {bottom: 25%;}
+    to {bottom: 15%;}
 	}
 
 
 	@keyframes posi2 {
-	  from {top: 35%;}
-	  to {top: 50%;}
+    from {bottom: 25%;}
+    to {bottom: 15%;}
 	}
 
 	.txt h1{
-		font-size: 40px;
+		font-size:4rem;
+    line-height: 35px;
 	}
 	.txt p{
 		font-size: 13px;
+    line-height: 20px;
 	}
 
   .img-slider{
@@ -842,7 +860,7 @@ video {
 
 @media screen and (max-width: 520px){
 	.txt h1{
-		font-size: 30px;
+		font-size: 3.5rem;
 		margin-bottom: 20px;
 	}
 	.sign{
@@ -869,7 +887,7 @@ video {
 @media screen and (max-width: 800px){
 	.txt{
 		letter-spacing: 2px;
-		line-height: 25px;
+		line-height: 35px;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -880,18 +898,18 @@ video {
 	}
 
 	@-webkit-keyframes posi2 {
-	  from {top: 35%;}
-	  to {top: 50%;}
+    from {bottom: 25%;}
+    to {bottom: 15%;}
 	}
 
 
 	@keyframes posi2 {
-	  from {top: 35%;}
-	  to {top: 50%;}
+    from {bottom: 25%;}
+    to {bottom: 15%;}
 	}
 
 	.txt h1{
-		font-size: 40px;
+		font-size: 4rem;
 	}
 	.txt p{
 		font-size: 13px;
@@ -932,7 +950,7 @@ video {
 }
 
 .txt1 h1{
-	color: #00a7ff; /* blue */
+	color: #014c74; /* blue */
   letter-spacing:0rem;
 	line-height: 2.5rem;
 	font-size: 3rem;
@@ -952,7 +970,7 @@ video {
 @media screen and (max-width: 800px){
 	.txt1{
 		letter-spacing: 2px;
-		line-height: 25px;
+		line-height: 35px;
 		top: 70%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -974,10 +992,10 @@ video {
   }
 
 	.txt1 h1{
-		
+		font-size: 3.5rem;
 	}
 	.txt1 p{
-		
+		font-size: 1rem;
 	}
 
 }
