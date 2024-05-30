@@ -292,19 +292,33 @@ submitButton.addEventListener("click", (e) => {
 
     // --------------------------sliders-------------------------
 
-
     const myslides = document.querySelectorAll('.myslide'); // Selecting all elements with class 'myslide'
     const dots = document.querySelectorAll('.dot');
     let counter = 0; // Initialize counter to 0 for the first slide
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID;
     
     slidefun(counter);
     
     let timer = setInterval(autoSlide, 7000);
     
+
+    // Loop through slides
+    // function autoSlide() {
+    //     counter = (counter + 1) % myslides.length; 
+    //     slidefun(counter);
+    // }
+
     function autoSlide() {
-        counter = (counter + 1) % myslides.length; // Loop through slides
-        slidefun(counter);
-    }
+      counter = (counter + 1) % myslides.length;
+      slidefun(counter);
+      currentTranslate = -counter * slideshowContainer.offsetWidth;
+      applyTransform();
+      resetTimer();
+  }
     
     function plusSlides(n) {
         counter = (counter + n + myslides.length) % myslides.length; // Loop through slides
@@ -356,7 +370,13 @@ submitButton.addEventListener("click", (e) => {
     pauseButton.addEventListener('click', () => {
         clearInterval(timer); // Pause slideshow
     });
+    
 
+
+//drag slide functionality   
+const slides = document.querySelectorAll('.myslide');
+
+   
   // const slider = document.querySelector(".slider");
   // const nextBtn = document.querySelector(".next");
   // const prevBtn = document.querySelector(".prev");

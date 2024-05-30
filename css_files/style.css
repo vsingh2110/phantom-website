@@ -854,14 +854,14 @@ video {
 	}
 
 	@-webkit-keyframes posi2 {
-	  from {bottom: 25%;}
-    to {bottom: 15%;}
+	  from {bottom: 10%;}
+    to {bottom: 25%;}
 	}
 
 
 	@keyframes posi2 {
-    from {bottom: 25%;}
-    to {bottom: 15%;}
+    from {bottom: 10%;}
+    to {bottom: 25%;}
 	}
 
 	.txt h1{
@@ -989,14 +989,14 @@ video {
 }
 
 @-webkit-keyframes positxt1 {
-  from {bottom: 25%;}
-  to {bottom: 15%;}
+  from {bottom: 10%;}
+  to {bottom: 25%;}
 }
 
 
 @keyframes positxt1 {
-  from {bottom: 25%;}
-  to {bottom: 15%;}
+  from {bottom: 10%;}
+    to {bottom: 25%;}
 }
 
 .txt1 h1{
