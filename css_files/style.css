@@ -835,7 +835,7 @@ video {
 
 @media screen and (max-width: 800px){
 	.myslide{
-		height: 500px;
+		height: 425px;
 	}
 
   .prev, .next{
@@ -1024,7 +1024,7 @@ video {
 	.txt1{
 		letter-spacing: 0px;
 		line-height: 35px;
-		top: 80%;
+		top: 73%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		-webkit-animation-name: positxt2;
