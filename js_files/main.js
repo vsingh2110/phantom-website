@@ -292,6 +292,7 @@ submitButton.addEventListener("click", (e) => {
 
     // --------------------------sliders-------------------------
 
+
     const myslides = document.querySelectorAll('.myslide'); // Selecting all elements with class 'myslide'
     const dots = document.querySelectorAll('.dot');
     let counter = 0; // Initialize counter to 0 for the first slide
@@ -307,18 +308,18 @@ submitButton.addEventListener("click", (e) => {
     
 
     // Loop through slides
-    // function autoSlide() {
-    //     counter = (counter + 1) % myslides.length; 
-    //     slidefun(counter);
-    // }
-
     function autoSlide() {
-      counter = (counter + 1) % myslides.length;
-      slidefun(counter);
-      currentTranslate = -counter * slideshowContainer.offsetWidth;
-      applyTransform();
-      resetTimer();
-  }
+        counter = (counter + 1) % myslides.length; 
+        slidefun(counter);
+    }
+
+  //   function autoSlide() {
+  //     counter = (counter + 1) % myslides.length;
+  //     slidefun(counter);
+  //     currentTranslate = -counter * slideshowContainer.offsetWidth;
+  //     applyTransform();
+  //     resetTimer();
+  // }
     
     function plusSlides(n) {
         counter = (counter + n + myslides.length) % myslides.length; // Loop through slides
@@ -352,7 +353,7 @@ submitButton.addEventListener("click", (e) => {
     
     const slideshowContainer = document.querySelector('.slider');
     
-    slideshowContainer.addEventListener('mouseenter', () => {
+    slideshowContainer.addEventListener('mouseover', () => {
         clearInterval(timer); // Pause slideshow on hover
     });
     
@@ -371,88 +372,57 @@ submitButton.addEventListener("click", (e) => {
         clearInterval(timer); // Pause slideshow
     });
     
-
-
-//drag slide functionality   
-const slides = document.querySelectorAll('.myslide');
-
-   
-  // const slider = document.querySelector(".slider");
-  // const nextBtn = document.querySelector(".next");
-  // const prevBtn = document.querySelector(".prev");
-  // const slides = document.querySelectorAll(".myslide");
-  // const slideIcons = document.querySelectorAll(".dot");
-  // const numberOfSlides = slides.length;
-  // var slideNumber = 0;
-
   
-  // nextBtn.addEventListener("click", () => {
-  //   slides.forEach((slide) => {
-  //     slide.classList.remove("active");
-  //   });
-  //   slideIcons.forEach((slideIcon) => {
-  //     slideIcon.classList.remove("active");
-  //   });
 
-  //   slideNumber++;
 
-  //   if(slideNumber > (numberOfSlides - 1)){
-  //     slideNumber = 0;
-  //   }
 
-  //   slides[slideNumber].classList.add("active");
-  //   slideIcons[slideNumber].classList.add("active");
-  // });
+// Adding swiper functionality
 
-  
-  // prevBtn.addEventListener("click", () => {
-  //   slides.forEach((slide) => {
-  //     slide.classList.remove("active");
-  //   });
-  //   slideIcons.forEach((slideIcon) => {
-  //     slideIcon.classList.remove("active");
-  //   });
 
-  //   slideNumber--;
+document.addEventListener("DOMContentLoaded", function() {
+  var swiper = new Swiper(".hero-slider", {
+      loop: true,
+      autoplay: {
+          delay: 7000 // 7 seconds
+      },
+      navigation: {
+          nextEl: ".next",
+          prevEl: ".prev"
+      },
+      pagination: {
+          el: ".dotsbox",
+          clickable: true
+      },
+      on: {
+          slideChange: function() {
+              resetTimer(); // Reset timer on slide change
+          }
+      }
+  });
 
-  //   if(slideNumber < 0){
-  //     slideNumber = numberOfSlides - 1;
-  //   }
+  // Pause slideshow on mouseover
+  swiper.on("mouseenter", function() {
+      swiper.autoplay.stop();
+  });
 
-  //   slides[slideNumber].classList.add("active");
-  //   slideIcons[slideNumber].classList.add("active");
-  // });
+  // Resume slideshow on mouseleave
+  swiper.on("mouseleave", function() {
+      swiper.autoplay.start();
+  });
 
- 
-  // var playSlider;
+  const playButton = document.querySelector(".play-btn");
+  const pauseButton = document.querySelector(".pause-btn");
 
-  // var repeater = () => {
-  //   playSlider = setInterval(function(){
-  //     slides.forEach((slide) => {
-  //       slide.classList.remove("active");
-  //     });
-  //     slideIcons.forEach((slideIcon) => {
-  //       slideIcon.classList.remove("active");
-  //     });
+  playButton.addEventListener("click", function() {
+      swiper.autoplay.start(); // Start slideshow
+  });
 
-  //     slideNumber++;
+  pauseButton.addEventListener("click", function() {
+      swiper.autoplay.stop(); // Pause slideshow
+  });
 
-  //     if(slideNumber > (numberOfSlides - 1)){
-  //       slideNumber = 0;
-  //     }
-
-  //     slides[slideNumber].classList.add("active");
-  //     slideIcons[slideNumber].classList.add("active");
-  //   }, 7000);
-  // }
-  // repeater();
-
- 
-  // slider.addEventListener("mouseover", () => {
-  //   clearInterval(playSlider);
-  // });
-
-  
-  // slider.addEventListener("mouseout", () => {
-  //   repeater();
-  // });
+  function resetTimer() {
+      swiper.autoplay.stop();
+      swiper.autoplay.start();
+  }
+});

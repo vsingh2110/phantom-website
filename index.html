@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="/css_files/style.css" />
   <link rel="stylesheet" href="/css_files/product-files/new-ct.css" />
   <link rel="stylesheet" href="/css_files/bottom-menu.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="/css_files/swiper-bundle.min.css">
+  
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 
@@ -170,6 +174,58 @@
         </div>
     </marquee>
 </div>
+
+
+
+  <!-- -------------floating download brochure------- -->
+  <div class="floating-brochure">
+    <button class="button-modal open-button">
+      <i class="fa fa-file-pdf-o"></i>
+      <p class>Download Brochure</p>
+    </button>
+
+    <dialog class="modal" id="modal">
+      <p>Fill Up The Form <br> To Download Our Brochure </p>
+      <button class="button-modal-close close-button">
+        <i class="fa fa-close" style="color:red"></i> Close</button>
+      <iframe id="myiframe"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSe_biYDKz7FI69XzVT_FoH-hzNvksu5mgYlPg5n9VKVgj62xQ/viewform?embedded=true"
+        width="700" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    </dialog>
+
+  </div>
+  <!-- --------floating brochure--- -->
+
+  <!-- -----------floating call widget------------>
+
+  <div class="floating-call">
+
+    <a href="https://wa.me/919899963601">
+      <i class="fa fa-whatsapp" aria-hidden="true">
+      </i>
+    </a>
+
+  </div>
+
+  <div class="floating-call-timing">
+
+    <p>Mon-Sat <br>
+      10:30am to 6:30pm
+    </p>
+
+  </div>
+
+  <!-- ----floating call end----- -->
+
+
+
+
+
+
+
+
+
 
 </header>
 <!-- --------------------------header--end-------------------------------------- -->
@@ -364,46 +420,7 @@
   </section>
 
 
-  <!-- -------------floating download brochure------- -->
-  <div class="floating-brochure">
-    <button class="button-modal open-button">
-      <i class="fa fa-file-pdf-o"></i>
-      <p class>Download Brochure</p>
-    </button>
 
-    <dialog class="modal" id="modal">
-      <p>Fill Up The Form <br> To Download Our Brochure </p>
-      <button class="button-modal-close close-button">
-        <i class="fa fa-close" style="color:red"></i> Close</button>
-      <iframe id="myiframe"
-        src="https://docs.google.com/forms/d/e/1FAIpQLSe_biYDKz7FI69XzVT_FoH-hzNvksu5mgYlPg5n9VKVgj62xQ/viewform?embedded=true"
-        width="700" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-
-    </dialog>
-
-  </div>
-  <!-- --------floating brochure--- -->
-
-  <!-- -----------floating call widget------------>
-
-  <div class="floating-call">
-
-    <a href="https://wa.me/919899963601">
-      <i class="fa fa-whatsapp" aria-hidden="true">
-      </i>
-    </a>
-
-  </div>
-
-  <div class="floating-call-timing">
-
-    <p>Mon-Sat <br>
-      10:30am to 6:30pm
-    </p>
-
-  </div>
-
-  <!-- ----floating call end----- -->
 
 
   <!-- --------top-block------------------- -->
@@ -1151,6 +1168,8 @@
 <!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
 
 <!-- ---------- main js file-------------------- -->
+<script async defer ="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="js_files/swiper-bundle.min.js"></script>
 <script src="/js_files/main.js"></script>
 
 
