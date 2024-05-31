@@ -373,9 +373,6 @@ submitButton.addEventListener("click", (e) => {
     });
     
   
-
-
-
 // Adding swiper functionality
 
 

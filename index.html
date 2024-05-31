@@ -248,11 +248,10 @@
     <!-- ----main --- cover----slider----or hero--images -->
 
 
-    <div class="hero-slider">
-      <div class="slider">
+    <div class="hero-slider swiper mySwiper">
+      <div class="slider swiper-wrapper">
         <!-- fade css -->
-
-
+       <div class="swiper-slide">
         <div class="myslide fade active">
           <div class="txt1">
             <h1>Largest 3rd Party Vendors Of Refurbished Radiology Equipments</h1>
@@ -332,6 +331,7 @@
           <img class="img-slider" src="./images/slideshow/hf.jpg" style="width: 100%; height: 100%;">
         </picture>
         </div>
+      </div>
 
         <!-- /fade css -->
 
@@ -893,6 +893,8 @@
     </div>
   </section>
 
+  
+
 </body>
 <!-- ------------------body-----ends-------------------------------------- -->
 <!-- --------------------footer section----------------------- -->
@@ -1170,6 +1172,58 @@
 <!-- ---------- main js file-------------------- -->
 <script async defer ="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js_files/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var swiper = new Swiper(".mySwiper", {
+      loop: true,
+      autoplay: {
+          delay: 7000 // 7 seconds
+      },
+      navigation: {
+          nextEl: ".next",
+          prevEl: ".prev"
+      },
+      pagination: {
+          el: ".dotsbox",
+          clickable: true
+      },
+      on: {
+          slideChange: function() {
+              resetTimer(); // Reset timer on slide change
+          }
+      }
+  });
+
+  // Pause slideshow on mouseover
+  swiper.on("mouseenter", function() {
+      swiper.autoplay.stop();
+  });
+
+  // Resume slideshow on mouseleave
+  swiper.on("mouseleave", function() {
+      swiper.autoplay.start();
+  });
+
+  const playButton = document.querySelector(".play-btn");
+  const pauseButton = document.querySelector(".pause-btn");
+
+  playButton.addEventListener("click", function() {
+      swiper.autoplay.start(); // Start slideshow
+  });
+
+  pauseButton.addEventListener("click", function() {
+      swiper.autoplay.stop(); // Pause slideshow
+  });
+
+  function resetTimer() {
+      swiper.autoplay.stop();
+      swiper.autoplay.start();
+  }
+});
+
+</script>
+
 <script src="/js_files/main.js"></script>
 
 
