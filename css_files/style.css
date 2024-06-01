@@ -794,6 +794,7 @@ video {
 	line-height: 25px;
 	font-size: 2rem;
   font-weight: 500;
+  text-shadow: 2px 2px 4px #000000;
   
 }
 
@@ -1037,6 +1038,7 @@ video {
   text-align: center;
   color:#A0EB36;
   font-weight: 500;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 

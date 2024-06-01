@@ -59,7 +59,7 @@ $(window).scroll(function () {
 $(".testmonial_slider_area").owlCarousel({
   autoplay: true,
   slideSpeed: 1000,
-  items: 3,
+  items: 4,
   loop: true,
   nav: true,
   navText: [
@@ -79,7 +79,7 @@ $(".testmonial_slider_area").owlCarousel({
       items: 2
     },
     1000: {
-      items: 3
+      items: 4
     }
   }
 });
