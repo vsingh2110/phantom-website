@@ -861,8 +861,8 @@ video {
 
 
 	@keyframes posi2 {
-    from {bottom: 10%;}
-    to {bottom: 25%;}
+    from {bottom: 25%;}
+    to {bottom: 10%;}
 	}
 
 	.txt h1{
