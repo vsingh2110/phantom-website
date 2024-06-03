@@ -152,7 +152,7 @@ submitButton.addEventListener("click", (e) => {
   if (
     document.getElementById("name").value == "" ||
     document.getElementById("phone").value == ""||
-    document.getElementById("country").value == ""||
+    document.getElementById("country").value == "" ||
     document.getElementById("city").value == ""
     // || document.getElementById("msg").value == ""
   ) {
@@ -174,8 +174,8 @@ submitButton.addEventListener("click", (e) => {
     let Email = document.getElementById("email").value;
     let Enquiry = document.getElementById("enquiry").value;
     let Country = document.getElementById("country").value;
-    let City = document.getElementById("city");
-    let Hopsital = document.getElementById("hospital");
+    let City = document.getElementById("city").value;
+    let Hospital = document.getElementById("hospital").value;
     let sayDateValStamp = sayDateVal;
 
     firestore
@@ -202,7 +202,7 @@ submitButton.addEventListener("click", (e) => {
         country:Country,
         enquiry: Enquiry,
         city: City,
-        hospital: Hopsital,
+        hospital:Hospital,
         sayDateVal: sayDateValStamp
       })
       .then(() => {})
