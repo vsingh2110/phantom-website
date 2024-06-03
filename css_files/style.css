@@ -214,7 +214,13 @@ dialog::backdrop {
 }
 
 
-
+div#popupContact img#close {
+  position: absolute;
+  width: 5%;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+}
 
 /* ----floating-call----- */
 .floating-call {
@@ -1464,8 +1470,8 @@ video {
 div#popupContact img#close {
   position: absolute;
   width: 5%;
-  right: -14px;
-  top: -14px;
+  right: 5%;
+  top: 0;
   cursor: pointer;
 }
 /* img#close {
@@ -2890,7 +2896,7 @@ a.sociali-footer:focus {
     margin-right: 2rem;
     font-family: "Poppins", sans-serif;
     z-index: 5;
-    top: 50%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 84%;
@@ -4119,7 +4125,7 @@ dialog::backdrop {
   /* ---form---popup------ */
   div#popupContact {
     position: absolute;
-    top: 50%;
+    top: 75%;
     margin-left: 0;
     font-family: "Poppins", sans-serif;
     z-index: 4;
