@@ -1476,19 +1476,21 @@ div#popupContact img#close {
 } */
 div#popupContact {
   position: absolute;
-  left: 10%;
-  top: 17%;
+  top: 50%;
   margin-left: 0;
   font-family: "Poppins", sans-serif;
   z-index: 8;
-  
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
 }
+
 div#popupContact form {
   max-width: 100vh;
-  min-width: 100vh;
-  padding: 10px 50px;
-  border: 2px solid gray;
-  border-radius: 10px;
+  /* min-width: 100vh; */
+  padding: 41px 59px;
+  border: 16px solid gray;
+  border-radius: 27px;
   font-family: poppins;
   background-color: #fff;
 }
@@ -2884,21 +2886,24 @@ a.sociali-footer:focus {
   /* -----------pop-up----form---------- */
   div#popupContact {
     position: absolute;
-
-    left: 1%;
-    right: 1%;
-    top: 17%;
     margin-left: 2rem;
     margin-right: 2rem;
     font-family: "Poppins", sans-serif;
     z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 84%;
     /* max-width: 50vh;
     min-width: 50vh; */
-  }
+}
+
+
+  
   div#popupContact form {
     max-width: 100%;
     min-width: 100%;
-    padding: 10px 50px;
+    padding: 10px 5px;
     border: 2px solid gray;
     border-radius: 10px;
     font-family: poppins;
@@ -4114,12 +4119,15 @@ dialog::backdrop {
   /* ---form---popup------ */
   div#popupContact {
     position: absolute;
-    left: 10%;
-    top: 17%;
+    top: 50%;
     margin-left: 0;
     font-family: "Poppins", sans-serif;
     z-index: 4;
-  }
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+
+}
   div#popupContact form {
     max-width: 100%;
     min-width: 100%;
@@ -4132,7 +4140,7 @@ dialog::backdrop {
 
   div#popupContact img#close {
     width: 8%;
-    right: 7rem;
+    right: 0%;
   }
 }
 /* ----------------------------------------------------between for768 and for1000----------------------- */
@@ -4199,16 +4207,16 @@ dialog::backdrop {
   /* ---form---popup------ */
   div#popupContact {
     position: absolute;
-    left: 10%;
-    top: 17%;
-    margin-left: 0;
+    left: 50%;
+    top: 50%;
     font-family: "Poppins", sans-serif;
     z-index: 4;
-  }
+    width: 80%;
+    transform: translate(-50%, -50%);
+}
   div#popupContact form {
-    max-width: 95vh;
-    min-width: 95vh;
-    padding: 10px 2px;
+  
+    padding: 10px 10px;
     border: 2px solid gray;
     border-radius: 10px;
     font-family: poppins;
