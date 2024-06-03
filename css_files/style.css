@@ -2890,7 +2890,7 @@ a.sociali-footer:focus {
     font-size: 1.5rem;
   }
   /* -----------pop-up----form---------- */
-  div#popupContact {
+  /* div#popupContact {
     position: absolute;
     margin-left: 2rem;
     margin-right: 2rem;
@@ -2900,10 +2900,18 @@ a.sociali-footer:focus {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 84%;
-    /* max-width: 50vh;
-    min-width: 50vh; */
+    max-width: 50vh;
+    min-width: 50vh;
+} */
+div#popupContact {
+  position: absolute;
+  font-family: "Poppins", sans-serif;
+  z-index: 5;
+  top: 75%;
+  left: 50%;
+  transform: translate(-56%, -50%);
+  width: 84%;
 }
-
 
   
   div#popupContact form {
