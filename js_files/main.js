@@ -104,6 +104,22 @@ $(".testmonial_slider_area").owlCarousel({
 //   }
 // }
 
+
+//-----------pupup modal--------------------
+
+const modal = document.querySelector("#modal");
+const openModal = document.querySelector(".open-button");
+const closeModal = document.querySelector(".close-button");
+
+openModal.addEventListener("click", () => {
+  modal.showModal();
+});
+
+closeModal.addEventListener("click", () => {
+  modal.close();
+});
+
+
 // --------------------------------
 //Function To Display Popup
 function div_show() {
@@ -113,6 +129,9 @@ function div_show() {
 function div_hide() {
   document.getElementById("abc").style.display = "none";
 }
+
+
+
 
 // -------------------------form-------firebase------------------
 // ------
@@ -276,158 +295,244 @@ submitButton.addEventListener("click", (e) => {
 
 
 
-    const modal = document.querySelector("#modal");
-    const openModal = document.querySelector(".open-button");
-    const closeModal = document.querySelector(".close-button");
-
-    openModal.addEventListener("click", () => {
-      modal.showModal();
-    });
-
-    closeModal.addEventListener("click", () => {
-      modal.close();
-    });
 
 
 
 
 
+// --------------------------sliders-------------------------
 
 
+  const myslides = document.querySelectorAll('.myslide'); // Selecting all elements with class 'myslide'
+const dots = document.querySelectorAll('.dot');
+let counter = 0; // Initialize counter to 0 for the first slide
+let isDragging = false;
+let startPos = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let animationID;
 
-    // --------------------------sliders-------------------------
+slidefun(counter);
 
+let timer = setInterval(autoSlide, 7000);
 
-    const myslides = document.querySelectorAll('.myslide'); // Selecting all elements with class 'myslide'
-    const dots = document.querySelectorAll('.dot');
-    let counter = 0; // Initialize counter to 0 for the first slide
-    let isDragging = false;
-    let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID;
-    
+// Loop through slides
+function autoSlide() {
+    counter = (counter + 1) % myslides.length; 
     slidefun(counter);
-    
-    let timer = setInterval(autoSlide, 7000);
-    
+}
 
-    // Loop through slides
-    function autoSlide() {
-        counter = (counter + 1) % myslides.length; 
-        slidefun(counter);
-    }
+function plusSlides(n) {
+    counter = (counter + n + myslides.length) % myslides.length; // Loop through slides
+    slidefun(counter);
+    resetTimer();
+}
 
-  //   function autoSlide() {
-  //     counter = (counter + 1) % myslides.length;
-  //     slidefun(counter);
-  //     currentTranslate = -counter * slideshowContainer.offsetWidth;
-  //     applyTransform();
-  //     resetTimer();
-  // }
-    
-    function plusSlides(n) {
-        counter = (counter + n + myslides.length) % myslides.length; // Loop through slides
-        slidefun(counter);
-        resetTimer();
+function currentSlide(n) {
+    counter = n - 1; // Adjust counter to match array index
+    slidefun(counter);
+    resetTimer();
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(autoSlide, 7000);
+}
+
+function slidefun(n) {
+    for (let i = 0; i < myslides.length; i++) {
+        myslides[i].classList.remove('active');
+        myslides[i].classList.add('fade');
     }
-    
-    function currentSlide(n) {
-        counter = n - 1; // Adjust counter to match array index
-        slidefun(counter);
-        resetTimer();
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove('active');
     }
-    
-    function resetTimer() {
-        clearInterval(timer);
-        timer = setInterval(autoSlide, 7000);
-    }
-    
-    function slidefun(n) {
-        for (let i = 0; i < myslides.length; i++) {
-            myslides[i].classList.remove('active');
-            myslides[i].classList.add('fade');
-        }
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].classList.remove('active');
-        }
-        myslides[n].classList.add('active');
-        myslides[n].classList.add('fade');
-        dots[n].classList.add('active');
-    }
-    
-    const slideshowContainer = document.querySelector('.slider');
-    
-    slideshowContainer.addEventListener('mouseover', () => {
-        clearInterval(timer); // Pause slideshow on hover
-    });
-    
-    slideshowContainer.addEventListener('mouseleave', () => {
-        resetTimer(); // Resume slideshow on mouse leave
-    });
-    
-    const playButton = document.querySelector('.play-btn');
-    const pauseButton = document.querySelector('.pause-btn');
-    
-    playButton.addEventListener('click', () => {
-        timer = setInterval(autoSlide, 7000); // Start slideshow
-    });
-    
-    pauseButton.addEventListener('click', () => {
-        clearInterval(timer); // Pause slideshow
-    });
-    
+    myslides[n].classList.add('active');
+    myslides[n].classList.add('fade');
+    dots[n].classList.add('active');
+}
+
+const slideshowContainer = document.querySelector('.slider');
+
+slideshowContainer.addEventListener('mouseover', () => {
+    clearInterval(timer); // Pause slideshow on hover
+});
+
+let resumeTimeout;
+slideshowContainer.addEventListener('mouseleave', () => {
+    clearTimeout(resumeTimeout); // Clear any existing timeout to avoid multiple timers
+    resumeTimeout = setTimeout(() => {
+        autoSlide(); // Advance to the next slide immediately
+        resetTimer(); // Resume the regular 7-second interval timer
+    }, 2000);
+});
+
+const playButton = document.querySelector('.play-btn');
+const pauseButton = document.querySelector('.pause-btn');
+
+playButton.addEventListener('click', () => {
+    timer = setInterval(autoSlide, 7000); // Start slideshow
+});
+
+pauseButton.addEventListener('click', () => {
+    clearInterval(timer); // Pause slideshow
+});
   
+
+
+
+
+//--------------------------original------------------------------ slider-----
+
+  // const myslides = document.querySelectorAll('.myslide'); // Selecting all elements with class 'myslide'
+  //   const dots = document.querySelectorAll('.dot');
+  //   let counter = 0; // Initialize counter to 0 for the first slide
+  //   let isDragging = false;
+  //   let startPos = 0;
+  //   let currentTranslate = 0;
+  //   let prevTranslate = 0;
+  //   let animationID;
+    
+  //   slidefun(counter);
+    
+  //   let timer = setInterval(autoSlide, 7000);
+    
+
+  //   // Loop through slides
+  //   function autoSlide() {
+  //       counter = (counter + 1) % myslides.length; 
+  //       slidefun(counter);
+  //   }
+
+  // //   function autoSlide() {
+  // //     counter = (counter + 1) % myslides.length;
+  // //     slidefun(counter);
+  // //     currentTranslate = -counter * slideshowContainer.offsetWidth;
+  // //     applyTransform();
+  // //     resetTimer();
+  // // }
+    
+  //   function plusSlides(n) {
+  //       counter = (counter + n + myslides.length) % myslides.length; // Loop through slides
+  //       slidefun(counter);
+  //       resetTimer();
+  //   }
+    
+  //   function currentSlide(n) {
+  //       counter = n - 1; // Adjust counter to match array index
+  //       slidefun(counter);
+  //       resetTimer();
+  //   }
+    
+  //   function resetTimer() {
+  //       clearInterval(timer);
+  //       timer = setInterval(autoSlide, 7000);
+  //   }
+    
+  //   function slidefun(n) {
+  //       for (let i = 0; i < myslides.length; i++) {
+  //           myslides[i].classList.remove('active');
+  //           myslides[i].classList.add('fade');
+  //       }
+  //       for (let i = 0; i < dots.length; i++) {
+  //           dots[i].classList.remove('active');
+  //       }
+  //       myslides[n].classList.add('active');
+  //       myslides[n].classList.add('fade');
+  //       dots[n].classList.add('active');
+  //   }
+    
+  //   const slideshowContainer = document.querySelector('.slider');
+    
+  //   slideshowContainer.addEventListener('mouseover', () => {
+  //       clearInterval(timer); // Pause slideshow on hover
+  //   });
+    
+  //   slideshowContainer.addEventListener('mouseleave', () => {
+  //       resetTimer(); // Resume slideshow on mouse leave
+  //   });
+    
+  //   const playButton = document.querySelector('.play-btn');
+  //   const pauseButton = document.querySelector('.pause-btn');
+    
+  //   playButton.addEventListener('click', () => {
+  //       timer = setInterval(autoSlide, 7000); // Start slideshow
+  //   });
+    
+  //   pauseButton.addEventListener('click', () => {
+  //       clearInterval(timer); // Pause slideshow
+  //   });
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Adding swiper functionality
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  var swiper = new Swiper(".hero-slider", {
-      loop: true,
-      autoplay: {
-          delay: 7000 // 7 seconds
-      },
-      navigation: {
-          nextEl: ".next",
-          prevEl: ".prev"
-      },
-      pagination: {
-          el: ".dotsbox",
-          clickable: true
-      },
-      on: {
-          slideChange: function() {
-              resetTimer(); // Reset timer on slide change
-          }
-      }
-  });
+// document.addEventListener("DOMContentLoaded", function() {
+//   var swiper = new Swiper(".hero-slider", {
+//       loop: true,
+//       autoplay: {
+//           delay: 7000 
+//       },
+//       navigation: {
+//           nextEl: ".next",
+//           prevEl: ".prev"
+//       },
+//       pagination: {
+//           el: ".dotsbox",
+//           clickable: true
+//       },
+//       on: {
+//           slideChange: function() {
+//               resetTimer(); 
+//           }
+//       }
+//   });
 
-  // Pause slideshow on mouseover
-  swiper.on("mouseenter", function() {
-      swiper.autoplay.stop();
-  });
+  
+//   swiper.on("mouseenter", function() {
+//       swiper.autoplay.stop();
+//   });
 
-  // Resume slideshow on mouseleave
-  swiper.on("mouseleave", function() {
-      swiper.autoplay.start();
-  });
+  
+//   swiper.on("mouseleave", function() {
+//       swiper.autoplay.start();
+//   });
 
-  const playButton = document.querySelector(".play-btn");
-  const pauseButton = document.querySelector(".pause-btn");
+//   const playButton = document.querySelector(".play-btn");
+//   const pauseButton = document.querySelector(".pause-btn");
 
-  playButton.addEventListener("click", function() {
-      swiper.autoplay.start(); // Start slideshow
-  });
+//   playButton.addEventListener("click", function() {
+//       swiper.autoplay.start(); 
+//   });
 
-  pauseButton.addEventListener("click", function() {
-      swiper.autoplay.stop(); // Pause slideshow
-  });
+//   pauseButton.addEventListener("click", function() {
+//       swiper.autoplay.stop(); 
+//   });
 
-  function resetTimer() {
-      swiper.autoplay.stop();
-      swiper.autoplay.start();
-  }
-});
+//   function resetTimer() {
+//       swiper.autoplay.stop();
+//       swiper.autoplay.start();
+//   }
+// });
+
+
 
 
 
