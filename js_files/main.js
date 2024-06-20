@@ -378,58 +378,8 @@ pauseButton.addEventListener('click', () => {
     clearInterval(timer); // Pause slideshow
 });
   
- // Touch events for swipe functionality
- slideshowContainer.addEventListener('touchstart', touchStart);
- slideshowContainer.addEventListener('touchmove', touchMove);
- slideshowContainer.addEventListener('touchend', touchEnd);
 
- // Mouse events for swipe functionality
- slideshowContainer.addEventListener('mousedown', mouseStart);
- slideshowContainer.addEventListener('mousemove', mouseMove);
- slideshowContainer.addEventListener('mouseup', mouseEnd);
- slideshowContainer.addEventListener('mouseleave', mouseEnd);
 
- function touchStart(event) {
-     startX = event.touches[0].clientX;
-     isDragging = true;
- }
-
- function touchMove(event) {
-     if (!isDragging) return;
-     currentX = event.touches[0].clientX;
- }
-
- function touchEnd() {
-     if (!isDragging) return;
-     const diffX = startX - currentX;
-     if (diffX > 50) {
-         plusSlides(1); // Swipe left
-     } else if (diffX < -50) {
-         plusSlides(-1); // Swipe right
-     }
-     isDragging = false;
- }
-
- function mouseStart(event) {
-     startX = event.clientX;
-     isDragging = true;
- }
-
- function mouseMove(event) {
-     if (!isDragging) return;
-     currentX = event.clientX;
- }
-
- function mouseEnd() {
-     if (!isDragging) return;
-     const diffX = startX - currentX;
-     if (diffX > 50) {
-         plusSlides(1); // Swipe left
-     } else if (diffX < -50) {
-         plusSlides(-1); // Swipe right
-     }
-     isDragging = false;
- }
 
 
 //--------------------------original------------------------------ slider-----
