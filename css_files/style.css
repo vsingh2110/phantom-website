@@ -463,7 +463,7 @@ a.sociali:focus {
   padding: 2rem -0.1rem 1rem 1rem;
   /* z-index: 3; */
   font-size: 1.4rem;
-  line-height: 1.4rem;
+  line-height: 2rem;
   font-weight: 300;
   margin-left: -1rem;
   height: auto;
@@ -532,7 +532,7 @@ a.sociali:focus {
 }
 .navbar a {
   
-  font-size: 2.5rem;
+  font-size: 2rem;
   
 }
 
@@ -2117,7 +2117,7 @@ textarea {
   padding: 40px 0;
 }
 .slide-content{
-  margin: 0 10px;
+  margin: 0 50px;
   overflow: hidden;
   border-radius: 25px;
   padding-bottom: 4rem;
@@ -2189,6 +2189,7 @@ textarea {
   font-size: 18px;
   font-weight: 500;
   color: #333;
+  text-align: center;
 }
 .description{
   font-size: 14px;
@@ -2211,7 +2212,7 @@ textarea {
     transition: all 0.5s ease;
 
 }
-.button a:hover{
+.card-content a:hover{
   background-color: rgb(7, 80, 139);
 }
 .swiper-navBtn{
