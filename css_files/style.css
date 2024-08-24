@@ -108,7 +108,7 @@ html {
 /* -----floating brochure  download------ */
 
 .floating-brochure{
-  top: 20%; 
+  top: 77%; 
   right: 5.9%;
   z-index: 5;
   position: fixed;
@@ -2119,7 +2119,7 @@ textarea {
   padding: 40px 0;
 }
 .slide-content{
-  margin: 0 50px;
+  margin: 0 90px;
   overflow: hidden;
   border-radius: 25px;
   padding-bottom: 4rem;
@@ -3275,7 +3275,7 @@ div#popupContact {
 /* ----------------floating-brochure----------------- */
 
 .floating-brochure{
-  top: 25%; 
+  top: 79%; 
   right: 4.5%;
   z-index: 5;
   position: fixed;
@@ -3747,7 +3747,7 @@ dialog::backdrop {
 
   .top-bar-wrapper {
     background: #259ae1;
-    height: 10vh;
+    height: auto;
     align-items: center;
     text-align: center;
   }
@@ -4247,7 +4247,7 @@ dialog::backdrop {
   }
   .our-product-wrap {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     justify-items: center;
