@@ -2764,7 +2764,7 @@ section.background-world-map{
 }
 .map-box {
   width: auto;
-  height: 50vh;
+  height: 35vh;
   margin-left: 2em;
   margin-top: 2rem;
 }
@@ -2808,6 +2808,7 @@ ul.footer-social {
   padding: 0;
   height: 100%;
   width: 100%;
+ 
 }
 ul.footer-social li {
   display: -webkit-box;
@@ -2846,6 +2847,61 @@ a.sociali-footer:focus {
   background: #ffff;
   color: #259ae1;
 }
+
+@media (min-width: 1380px) {
+
+  .footer-box3 {
+    margin-top: 2rem;
+    width: auto;
+  }
+  .map-box {
+    width: auto;
+    height: 30vh;
+    margin-left: 2em;
+    margin-top: 2rem;
+  }
+  .map-box iframe {
+    width: 130%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .social {
+    /* max-width: 1200px; */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  ul.footer-social {
+   
+    margin-left: 4rem;
+    gap:1rem;
+  }
+
+  .footer-social-icons {
+    
+    margin: 1rem auto 1rem 1rem;
+    /* margin-left: 8rem; */
+    
+}
+
+a.sociali-footer {
+  font-size: 2rem;
+ 
+}
+
+}
+
+
+
+
+
+
+
+
 
 /* --footer-menu- */
 .footer-menu-wrap {
