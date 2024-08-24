@@ -1944,7 +1944,7 @@ textarea {
 
 .our-product-wrap {
   display: flex;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
@@ -2327,6 +2327,7 @@ textarea {
 .why-choose-us {
   height: auto;
   margin-bottom: 0;
+  padding-bottom: 3rem;
 }
 .why-choose-heading {
   text-align: center;
@@ -3037,9 +3038,10 @@ a.sociali-footer:focus {
   .top-bar-wrapper {
     z-index: -1;
     background: #259ae1;
-    height: 10vh;
+    height: auto;
     align-items: center;
     text-align: center;
+    padding-bottom: 1rem;
   }
 
   .social {
@@ -3809,7 +3811,8 @@ dialog::backdrop {
 @media (max-width: 768px) {
   .navbar {
     opacity: 0.95;
-    height: 12vh;
+    height: auto;
+    padding-bottom: 2rem;
   }
 
   .navbar-container input,
