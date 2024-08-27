@@ -97,8 +97,8 @@ html {
 }
 
 .about-main-img-box-inner {
-  padding: 5rem;
-  padding-top: 0.5rem;
+  /* padding: 5rem; */
+  /* padding-top: 0.5rem; */
 }
 
 .about-main-img-box img {
@@ -138,13 +138,13 @@ html {
 }
 
 .about-message-img-box {
-  height: 40vh;
+  height: auto;
 }
 
 .about-message-img-box img {
-  height: 100%;
   object-fit: cover;
   border-radius: 5%;
+  width: 62%;
 }
 
 .director-name {
