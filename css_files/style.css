@@ -1997,7 +1997,7 @@ textarea {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 85%;
+  width: 125%;
   transition: 0.3s all ease-in-out;
 }
 
@@ -2013,7 +2013,7 @@ textarea {
 }
 
 .our-product-box:hover img {
-  transform: scale(1.5);
+  transform: scale(1.3);
 }
 
 .our-product-box h2 {
@@ -2074,8 +2074,19 @@ textarea {
   .our-product {
     display: none;
   }
+
+
 }
 
+
+@media screen and (max-width: 1000px){
+  .our-product-box img {
+    width: 100%;
+    
+  }
+
+  
+}
 
 
 @media screen and (min-width: 1600px){
@@ -2374,14 +2385,16 @@ textarea {
   height: auto;
   margin-bottom: 0;
   padding-bottom: 3rem;
+  padding-top: 3rem;
+  background-color: #e6e0e0;
 }
 .why-choose-heading {
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
   text-decoration: underline;
-  margin-top: 0.8em;
-  margin-bottom: 0.7em;
+  /* margin-top: 0.8em; */
+  /* margin-bottom: 0.7em; */
 }
 
 .why-choose-wrap {
@@ -2470,6 +2483,8 @@ textarea {
 /* -----------------Our-process---------------- */
 
 .our-process {
+  padding-bottom: 3rem;
+ 
 }
 
 .our-process-heading {
@@ -2502,14 +2517,14 @@ textarea {
 /* -----------iria-2024--------- */
 
 .iria-image{
-
+   padding-top: 3rem;
   /* width: 200px;  
   height: 200px; 
   overflow: hidden; */
   position: relative;  
 }
 
-.iria-image img { 
+.iria-image picture img { 
 
   /* position: absolute; 
   bottom: 0; 
@@ -2521,15 +2536,26 @@ textarea {
 
 
 .iria-heading {
-  position: absolute;
+  /* position: absolute; */
     text-align: center;
     font-size: 4rem;
     font-weight: 600;
     text-decoration: underline;
     margin-top: 0.2rem;
     margin-bottom: 0.3em;
-    left: 50%;
-    transform: translate(-50%);
+    /* left: 50%; */
+    /* transform: translate(-50%); */
+}
+
+
+@media screen and (max-width: 1000px){
+ 
+  .iria-heading {
+    
+      font-size: 3rem;
+      
+  }
+  
 }
 
 
