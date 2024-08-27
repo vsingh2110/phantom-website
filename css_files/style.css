@@ -66,9 +66,9 @@ html {
 }
 
 .heading-section-content {
-  margin-left: 2.5rem;
   padding: 3.5rem;
   font-size: 2rem;
+  text-align: center;
 }
 
 .btn {
@@ -2538,7 +2538,7 @@ textarea {
 .iria-heading {
   /* position: absolute; */
     text-align: center;
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-weight: 600;
     text-decoration: underline;
     margin-top: 0.2rem;

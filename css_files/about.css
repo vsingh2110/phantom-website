@@ -34,7 +34,7 @@ html {
 /* ------------about-hero------------------- */
 
 .about-hero {
-  height: 50vh;
+  height: auto;
 }
 
 .about-hero img {
