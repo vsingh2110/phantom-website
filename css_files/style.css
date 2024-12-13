@@ -483,6 +483,14 @@ a.sociali:focus {
   font-weight: 300;
 }
 
+.dropdown-content div {
+  margin-bottom: 1.4rem;
+  margin-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 300;
+}
+
 .dropdown-content p a:hover {
   color: #259ae1;
 }
@@ -515,22 +523,44 @@ a.sociali:focus {
 
 
 
-/* Hide submenu by default */
-.submenu {
-  display: none; /* Hidden by default */
-  padding-left: 20px;
-  font-size: 1.4rem;
-  margin-top: 10px; /* Space between submenu and parent */
-  position: absolute;
-  left: 100%; /* Positions the submenu to the right of the parent */
-  top: 0;
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for a dropdown look */
-  min-width: 200px;
+  /* Dropdown container */
+  .dropdown-para {
+    position: relative;
+    display: inline-block;
 }
 
-/* Style for the submenu items */
+/* Main link styling */
+.dropdown-para > a {
+    font-size: 1.6rem;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-para > a:hover {
+    color: #259ae1;
+}
+/* Submenu styling */
+.submenu {
+  display: none;
+  position: absolute;
+  left: 50%; /* Position to the right side of the parent */
+  top: 0; /* Align with the top of the parent item */
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  padding: 10px;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+/* Show submenu on hover */
+.dropdown-para:hover .submenu {
+  display: block;
+}
+
+/* Submenu item styling */
 .submenu-item {
   margin-bottom: 1rem;
   padding: 0.5rem;
@@ -539,51 +569,22 @@ a.sociali:focus {
 .submenu-item a {
   text-decoration: none;
   color: black;
+  display: block;
 }
 
-/* Hover effect for submenu items */
 .submenu-item a:hover {
   color: #259ae1;
 }
 
-/* Show submenu when hovering over MRI Scanner link */
-.dropdown-para:hover .submenu {
-  display: block; /* Show the submenu */
-}
-
-/* Rotate the arrow to indicate submenu expansion */
-.dropdown-para:hover .arrow {
-  transform: rotate(90deg); /* Rotate arrow */
-  transition: transform 0.3s ease; /* Smooth transition */
-}
-
-/* Optional: Style for the arrow */
+/* Arrow styling */
 .arrow {
   margin-left: 10px;
-  transition: transform 0.3s ease; /* Smooth transition for the arrow */
-}
-
-/* Optional: Adjusting the style for the dropdown items */
-.dropdown-para {
-  position: relative; /* To position the submenu */
-  display: inline-block; /* Ensures submenu can be positioned correctly */
-}
-
-/* Ensure that the dropdown arrow is always aligned */
-.dropdown-para a {
   display: inline-block;
-  position: relative;
+  transition: transform 0.3s ease;
 }
 
-/* Styling for the dropdown links */
-.dropdown-para a {
-  font-size: 1.6rem;
-  color: black;
-  text-decoration: none;
-}
-
-.dropdown-para a:hover {
-  color: #259ae1; /* Hover effect on link */
+.dropdown-para:hover .arrow {
+  transform: rotate(90deg);
 }
 
 @media screen and (min-width: 1600px){
@@ -1582,9 +1583,9 @@ video {
 .top-wrap-box {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; /* Enables wrapping */
+  flex-wrap: nowrap; /* Enables wrapping */
   justify-content: space-between; /* Distributes space evenly */
-  gap: 10px; /* Consistent spacing between boxes */
+  gap: 5rem; /* Consistent spacing between boxes */
 }
 
 .top-box {
