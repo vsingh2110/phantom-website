@@ -54,6 +54,35 @@ $(window).scroll(function () {
   }
 });
 
+
+// ----------mobile screen menu dropdown=------
+
+document.addEventListener('DOMContentLoaded', () => {
+  const dropdownToggle = document.querySelector('.dropdown-toggle'); // Products toggle
+  const dropdownContent = document.querySelector('.dropdown-content'); // Dropdown content
+
+  // Toggle the dropdown on "Products" or arrow click
+  dropdownToggle.addEventListener('click', (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    dropdownContent.classList.toggle('active'); // Toggle visibility
+    e.stopPropagation(); // Prevent closing immediately
+  });
+
+  // Close the dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.dropdown')) {
+      dropdownContent.classList.remove('active'); // Close dropdown
+    }
+  });
+});
+
+
+
+
+
+
+
+
 // -----------------------owl carousel-----------------------------------------------
 
 $(".testmonial_slider_area").owlCarousel({

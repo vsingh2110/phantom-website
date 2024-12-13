@@ -472,8 +472,26 @@ a.sociali:focus {
   border-radius: 0% 0% 10% 10%;
 }
 
+/* Show dropdown when active */
 .dropdown-content.active {
   display: block;
+}
+
+/* Style for the dropdown toggle */
+.dropdown-toggle {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-toggle .arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate the arrow when dropdown is active */
+.dropdown-content.active + .arrow {
+  transform: rotate(180deg);
 }
 
 .dropdown:hover .dropdown-content {
