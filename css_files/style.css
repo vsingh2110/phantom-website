@@ -1535,7 +1535,7 @@ video {
 
 .top-box img {
   display: block;
-  max-width: 120%;  /* Ensures the image never exceeds the container width */
+  max-width: 100%;  /* Ensures the image never exceeds the container width */
   height: auto;     /* Maintains aspect ratio */
   display: block;   /* Removes any extra spacing below the image */
   margin: 0 auto;   /* Centers the image horizontally */
