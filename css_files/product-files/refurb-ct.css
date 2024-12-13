@@ -50,8 +50,9 @@ html {
 .refurb-ct-main-wrap {
   display: flex;
   justify-content: space-between;
-  width: 75%;
+  width: 90%;
   flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .refurb-ct-main-box h2 {
@@ -62,7 +63,7 @@ html {
   margin-bottom: 2rem;
 }
 .refurb-ct-main-box {
-  width: 48%;
+  width: 32%;
   text-align: center;
 }
 
