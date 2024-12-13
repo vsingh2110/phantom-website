@@ -1535,8 +1535,10 @@ video {
 
 .top-box img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 120%;  /* Ensures the image never exceeds the container width */
+  height: auto;     /* Maintains aspect ratio */
+  display: block;   /* Removes any extra spacing below the image */
+  margin: 0 auto;   /* Centers the image horizontally */
 }
 
 .top-box h2 {
@@ -3382,7 +3384,8 @@ a.sociali-footer {
     flex: 1 1 calc(33.33% - 10px); /* Keeps 3 items in a row */
     margin-top: 1em; /* Adjust spacing for mobile */
     text-align: center; /* Center aligns text */
-    max-width: 100%; /* Ensure boxes fit within screen */
+   
+    max-width: calc(33.33% - 10px);
     
   }
 
