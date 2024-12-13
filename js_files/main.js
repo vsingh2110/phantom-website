@@ -58,24 +58,38 @@ $(window).scroll(function () {
 // ----------mobile screen menu dropdown=------
 
 document.addEventListener('DOMContentLoaded', () => {
-  const dropdownToggle = document.querySelector('.dropdown-toggle'); // Products toggle
-  const dropdownContent = document.querySelector('.dropdown-content'); // Dropdown content
+  // Select all dropdown toggles and dropdown contents
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  const dropdownContents = document.querySelectorAll('.dropdown-content');
 
-  // Toggle the dropdown on "Products" or arrow click
-  dropdownToggle.addEventListener('click', (e) => {
-    e.preventDefault(); // Prevent default link behavior
-    dropdownContent.classList.toggle('active'); // Toggle visibility
-    e.stopPropagation(); // Prevent closing immediately
+  // Add click event to each dropdown toggle
+  dropdownToggles.forEach((toggle, index) => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default link behavior
+      
+      // Toggle the specific dropdown content associated with this toggle
+      dropdownContents[index].classList.toggle('active');
+      
+      // Close other dropdowns
+      dropdownContents.forEach((content, contentIndex) => {
+        if (contentIndex !== index) {
+          content.classList.remove('active');
+        }
+      });
+      
+      e.stopPropagation(); // Prevent the click from propagating to the document listener
+    });
   });
 
-  // Close the dropdown when clicking outside
+  // Close the dropdowns when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
-      dropdownContent.classList.remove('active'); // Close dropdown
+      dropdownContents.forEach(content => {
+        content.classList.remove('active');
+      });
     }
   });
 });
-
 
 
 
