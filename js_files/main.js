@@ -58,42 +58,42 @@ $(window).scroll(function () {
 // ----------mobile screen menu dropdown=------
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Select all dropdown toggles and dropdown contents
-  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-  const dropdownContents = document.querySelectorAll('.dropdown-content');
+  const dropdowns = document.querySelectorAll('.dropdown');
 
-  // Add click event to each dropdown toggle
-  dropdownToggles.forEach((toggle, index) => {
-    toggle.addEventListener('click', (e) => {
+  dropdowns.forEach(dropdown => {
+    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
+
+    // Toggle dropdown when clicking on the dropdown toggle
+    dropdownToggle.addEventListener('click', (e) => {
       e.preventDefault(); // Prevent default link behavior
-      
-      // Toggle the specific dropdown content associated with this toggle
-      dropdownContents[index].classList.toggle('active');
-      
-      // Close other dropdowns
-      dropdownContents.forEach((content, contentIndex) => {
-        if (contentIndex !== index) {
+      e.stopPropagation(); // Stop event from propagating
+
+      // If dropdown is already active, close it
+      // If it's not active, open it and close other dropdowns
+      if (dropdownContent.classList.contains('active')) {
+        dropdownContent.classList.remove('active');
+      } else {
+        // Close all other active dropdowns
+        document.querySelectorAll('.dropdown-content.active').forEach(content => {
           content.classList.remove('active');
-        }
-      });
-      
-      e.stopPropagation(); // Prevent the click from propagating to the document listener
+        });
+        
+        // Open this dropdown
+        dropdownContent.classList.add('active');
+      }
     });
   });
 
-  // Close the dropdowns when clicking outside
+  // Close dropdowns when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.dropdown')) {
-      dropdownContents.forEach(content => {
+      document.querySelectorAll('.dropdown-content.active').forEach(content => {
         content.classList.remove('active');
       });
     }
   });
 });
-
-
-
-
 
 
 
