@@ -1510,6 +1510,7 @@ video {
 
 .top-wrap-box {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap; /* Enables wrapping */
   justify-content: space-between; /* Distributes space evenly */
   gap: 10px; /* Consistent spacing between boxes */
@@ -3376,16 +3377,17 @@ a.sociali-footer {
   }
   .top-wrap-box {
     display: flex; /* Ensures Flexbox */
-    flex-wrap: wrap; /* Allows items to wrap */
+    flex-wrap: nowrap; /* Allows items to wrap */
+    flex-direction: column;
     justify-content: space-between; /* Spacing between boxes */
     gap: 10px; /* Consistent spacing */
   }
   .top-box {
-    flex: 1 1 calc(33.33% - 10px); /* Keeps 3 items in a row */
+    /* flex: 1 1 calc(33.33% - 10px);  */
     margin-top: 1em; /* Adjust spacing for mobile */
     text-align: center; /* Center aligns text */
-   
-    max-width: calc(33.33% - 10px);
+    max-width: 100%;
+    /* max-width: calc(33.33% - 10px); */
     
   }
 
