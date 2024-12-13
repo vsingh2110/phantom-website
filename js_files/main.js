@@ -64,37 +64,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
     const dropdownContent = dropdown.querySelector('.dropdown-content');
 
-    // Toggle dropdown when clicking on the dropdown toggle
-    dropdownToggle.addEventListener('click', (e) => {
-      e.preventDefault(); // Prevent default link behavior
-      e.stopPropagation(); // Stop event from propagating
+    // Flag to track dropdown state
+    let isDropdownOpen = false;
 
-      // If dropdown is already active, close it
-      // If it's not active, open it and close other dropdowns
-      if (dropdownContent.classList.contains('active')) {
-        dropdownContent.classList.remove('active');
-      } else {
-        // Close all other active dropdowns
-        document.querySelectorAll('.dropdown-content.active').forEach(content => {
-          content.classList.remove('active');
-        });
-        
-        // Open this dropdown
-        dropdownContent.classList.add('active');
-      }
-    });
-  });
-
-  // Close dropdowns when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.dropdown')) {
+    // Function to close all dropdowns
+    const closeAllDropdowns = () => {
       document.querySelectorAll('.dropdown-content.active').forEach(content => {
         content.classList.remove('active');
       });
-    }
+    };
+
+    // Toggle dropdown when clicking on the dropdown toggle
+    dropdownToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Toggle dropdown state
+      if (isDropdownOpen) {
+        dropdownContent.classList.remove('active');
+        isDropdownOpen = false;
+      } else {
+        // Close all other dropdowns
+        closeAllDropdowns();
+        
+        // Open this dropdown
+        dropdownContent.classList.add('active');
+        isDropdownOpen = true;
+      }
+    });
+
+    // Prevent hover from interfering with click
+    dropdownToggle.addEventListener('mouseenter', (e) => {
+      e.stopPropagation();
+    });
+
+    // Close dropdown if click occurs outside
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdownContent.classList.remove('active');
+        isDropdownOpen = false;
+      }
+    });
   });
 });
-
 
 
 // -----------------------owl carousel-----------------------------------------------

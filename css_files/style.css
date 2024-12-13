@@ -468,7 +468,7 @@ a.sociali:focus {
   margin-left: -1rem;
   height: auto;
   margin-top: 1.2rem;
-  z-index: 1;
+  z-index: 20;
   border-radius: 0% 0% 10% 10%;
 }
 
@@ -482,11 +482,15 @@ a.sociali:focus {
   cursor: pointer;
   text-decoration: none;
   color: black;
+  position: relative;
+  z-index: 10;
 }
 
 .dropdown-toggle .arrow {
   margin-left: 5px;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 10;
 }
 
 /* Rotate the arrow when dropdown is active */
@@ -496,6 +500,7 @@ a.sociali:focus {
 
 .dropdown:hover .dropdown-content {
   display: block;
+  z-index: 20;
 }
 .dropdown-content p {
   margin-bottom: 1.4rem;
@@ -531,6 +536,7 @@ a.sociali:focus {
 .menu-items li:hover {
   color: white;
   background-color: #259ae1;
+  pointer-events: none;
 }
 
 .logo{
