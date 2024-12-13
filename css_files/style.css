@@ -472,6 +472,10 @@ a.sociali:focus {
   border-radius: 0% 0% 10% 10%;
 }
 
+.dropdown-content.active {
+  display: block;
+}
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -482,6 +486,8 @@ a.sociali:focus {
   padding-right: 1rem;
   font-weight: 300;
 }
+
+
 
 .dropdown-content div {
   margin-bottom: 1.4rem;
