@@ -166,3 +166,13 @@ html {
     width: 100%;
   }
 }
+
+
+
+/* feebcak section embed  */
+
+.feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
