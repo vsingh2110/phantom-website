@@ -217,13 +217,13 @@ dialog::backdrop {
 }
 
 
-div#popupContact img#close {
+/* div#popupContact img#close {
   position: absolute;
   width: 5%;
   right: 0px;
   top: 0px;
   cursor: pointer;
-}
+} */
 
 /* ----floating-call----- */
 .floating-call {
@@ -1711,10 +1711,11 @@ div#popupContact {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75%;
+  height: 100%
 }
 
 div#popupContact form {
-  max-width: 100vh;
+  max-width: 100vw;
   /* min-width: 100vh; */
   padding: 41px 59px;
   border: 16px solid gray;
@@ -3594,7 +3595,10 @@ dialog::backdrop {
     left:9%;
     height: 95vh;
     width: 100%;
+   
+    z-index: 9999;
   }
+
 
   .modal p{
     font-size: 2rem;
