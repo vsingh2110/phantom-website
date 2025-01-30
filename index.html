@@ -22,6 +22,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" />
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+
+
 
 
 
@@ -484,91 +487,61 @@
       <button class="btn btn-primary" id="popup" onclick="div_show()">Request A Callback</button>
     </div>
   </section>
-  <!-- ----------form popup--------------------->
+<!-- ----------form popup--------------------->
 
-  <section id="form-body" style="overflow: hidden;">
+<section id="form-body" style="overflow: hidden;">
 
-    <div id="abc">
-      <div id="popupContact">
-        <!-- Contact Us Form -->
-        <div class="form-alert">Form Submitted Successfully</div>
-        <form action="" class="form" id="clearFrom">
-          <img id="close" src="./images/close-icon.png" onclick="div_hide()">
-          <div class="form-group">
-            <label class="required-label" for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="Type Your Name" required />
-          </div>
-
-          <div class="form-group">
-            <label class="required-label" for="phone">Phone: </label>
-
-            <input type="tel" name="phone" id="phone" placeholder="Type Your Phone Number" required />
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" placeholder="Type Your Email" />
-          </div>
-
-          <div class="form-group">
-            <label class="required-label" for="country">Country:</label>
-            <input type="text" name="country" id="country" placeholder="Type Your Country Name" />
-          </div>
-
-          <div class="form-group">
-            <label class="required-label" for="city">City:</label>
-            <input type="text" name="city" id="city" placeholder="Type Your City Name" />
-          </div>
-
-          <div class="form-group">
-            <label for="hospital">Hospital/Clinic/Diagnostic Center's Name: (Optional)</label>
-            <input type="text" name="hospital" id="hospital" placeholder="Type Hospital/Clinic/Diagnostic Center Name" />
-          </div>
-
-          <!-- <div class="form-group">
-            <label for="enquiry">Enquiry</label>
-            <textarea name="enquiry" id="enquiry" placeholder="Type Your Enquiries/Requests">
-                </textarea>
-          </div> -->
-
-          <div class="form-group enquiry-label">
-            <label for="enquiry" for="enquiry">Enquiry:</label>
-            <input type="text" name="enquiry" id="enquiry" placeholder="Type Your Enquiries/Requests" required />
-          </div>
-
-          <!-- ---------------------date stamp---------------------- -->
-          <!-- <div class="dateTimeStamp">             
-                <textarea
-                  name="dateTimeStamp"
-                  id="dateTimeStamp">
-                   
-                <script>
-                   // Using Date() method
-                let dateTimeStamp = Date();
-   
-                 // Converting the number value to string
-                 let DateTimeStampVal = dateTimeStamp.toString()
-                 document.write("The current date is: " + DateTimeStampVal)
-                </script>
-                </textarea>                
-              </div> -->
-
-          <button type="submit" onclick="sayDate()" id="submit" class="form-btn">Submit</button>
-        </form>
-        <!-- <form action="#" id="form" method="post" name="form">
-          <img id="close" src="images/close-icon.png" onclick ="div_hide()">
-          <h2>Contact Us</h2>
-          <hr>
-          <input id="name" name="name" placeholder="Name" type="text">
-          <input id="email" name="email" placeholder="Email" type="text">
-          <textarea id="msg" name="message" placeholder="Message"></textarea>
-          <a href="javascript:%20check_empty()" id="submit">Send</a>
-          </form> -->
+  <div id="abc">
+    <div id="popupContact">
+      <!-- Contact Us Form -->
+      <div class="form-alert" id="successMessage" style="display:none;">Form Submitted Successfully</div>
+      <form action="javascript:void(0);" method="POST" class="form" id="clearFrom">
+        <img id="close" src="./images/close-icon.png" onclick="div_hide()">
+        <div id="spinner" style="display: none;">
+          <div class="loader"></div>
       </div>
+        <div class="form-group">
+          <label class="required-label" for="name">Name:</label>
+          <input type="text" name="name" id="name" placeholder="Type Your Name" required />
+        </div>
+
+        <div class="form-group">
+          <label class="required-label" for="phone">Phone: </label>
+          <input type="tel" name="phone" id="phone" placeholder="Type Your Phone Number" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" placeholder="Type Your Email" />
+        </div>
+
+        <div class="form-group">
+          <label class="required-label" for="country">Country:</label>
+          <input type="text" name="country" id="country" placeholder="Type Your Country Name" />
+        </div>
+
+        <div class="form-group">
+          <label class="required-label" for="city">City:</label>
+          <input type="text" name="city" id="city" placeholder="Type Your City Name" />
+        </div>
+
+        <div class="form-group">
+          <label for="hospital">Hospital/Clinic/Diagnostic Center's Name: (Optional)</label>
+          <input type="text" name="hospital" id="hospital" placeholder="Type Hospital/Clinic/Diagnostic Center Name" />
+        </div>
+
+        <div class="form-group enquiry-label">
+          <label for="enquiry" for="enquiry">Enquiry:</label>
+          <input type="text" name="enquiry" id="enquiry" placeholder="Type Your Enquiries/Requests" required />
+        </div>
+
+        <button type="submit" id="submit" class="form-btn">Submit</button>
+      </form>
     </div>
+  </div>
 
+</section>
 
-  </section>
 
   <!-- -----------About us-------------------------- -->
   <section class="about-us">
@@ -951,7 +924,7 @@
     <div class="our-product-wrap container">
 
       <div class="our-product-box our-product-box1">
-        <img src="/images/machines/spare parts/Brain coil.png" />
+        <img src="./images/machines/spare parts/Brain coil.png" />
         <p class="availabe">Available</p>
         <h2>MRI Coils</h2>
         <h3>
@@ -963,7 +936,7 @@
       </div>
 
       <div class="our-product-box our-product-box2">
-        <img src="/images/machines/spare parts/cold head.png" />
+        <img src="./images/machines/spare parts/cold head.png" />
         <p class="availabe">Available</p>
         <h2>Cold Head MRI Machine</h2>
         <h3>
@@ -975,7 +948,7 @@
 
 
       <div class="our-product-box our-product-box2">
-        <img src="/images/machines/spare parts/MHU Tube.png" />
+        <img src="./images/machines/spare parts/MHU Tube.png" />
         <p class="availabe">Available</p>
         <h2>MHU Tube - CT Scanner</h2>
         <h3>
@@ -1003,15 +976,15 @@
     <div class="all-products-wrap container">
 
       <div class="all-products-box all-products-box1">
-        <a href="/product-pages/refurbished-mri-scanner-machines.html" class="btn-2 btn-secondary">GE MRI</a>
+        <a href="./product-pages/refurbished-ge-mri-scanner-machines.html" class="btn-2 btn-secondary">GE MRI</a>
       </div>
 
       <div class="all-products-box all-products-box1">
-        <a href="/product-pages/refurbished-mri-scanner-machines.html" class="btn-2 btn-secondary">Siemens MRI</a>
+        <a href="./product-pages/refurbished-siemens-mri-scanner-machines.html" class="btn-2 btn-secondary">Siemens MRI</a>
       </div>
 
       <div class="all-products-box all-products-box2">
-      <a href="/product-pages/refurbished-ct-scan-machines.html" class="btn-2 btn-secondary">CT</a>
+      <a href="./product-pages/refurbished-ct-scan-machines.html" class="btn-2 btn-secondary">CT</a>
   </div>
 
       <!-- <div class="all-products-box all-products-box3">
@@ -1026,11 +999,11 @@
       </div>
 
       <div class="all-products-box all-products-box3">
-        <a href="/product-pages/refurbished-pet-ct-scanner-machines.html" class="btn-2 btn-secondary">Gamma Camera SPECT</a>
+        <a href="./product-pages/refurbished-gamma-camera-spect-system-machine.html" class="btn-2 btn-secondary">Gamma Camera SPECT</a>
       </div>
 
       <div class="all-products-box all-products-box3">
-        <a href="/product-pages/refurbished-pet-ct-scanner-machines.html" class="btn-2 btn-secondary">Bone Densitometer</a>
+        <a href="./product-pages/refurbished-bone-densitometer-dexa.html" class="btn-2 btn-secondary">Bone Densitometer</a>
       </div>
 
 

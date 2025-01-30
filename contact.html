@@ -703,13 +703,15 @@
   <!-- <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script> -->
 
   <!-- ---------- main js file-------------------- -->
-  <script src="./js_files/contact.js"></script>
-  <script src="./js_files/main.js"></script>
+ 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.5.4/dialog-polyfill.min.js"></script>
+  
   <script>
       const dialog = document.querySelector('dialog');
       dialogPolyfill.registerDialog(dialog);
   </script>
+  <script src="./js_files/contact.js" defer></script>
+  <script src="./js_files/main.js" defer type="module"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
         const modal = document.getElementById("modal");

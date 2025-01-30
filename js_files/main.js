@@ -127,6 +127,17 @@ $(".testmonial_slider_area").owlCarousel({
   }
 });
 
+
+// Vanilla JavaScript version
+window.addEventListener('scroll', function () {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+      navbar.classList.add('nav-sticky');
+  } else {
+      navbar.classList.remove('nav-sticky');
+  }
+});
+
 // ---------------------------Owl carousle code --ends-------------------------------
 
 // --------------pop-up-------------form-------------------------
@@ -175,11 +186,10 @@ function div_hide() {
 
 
 
-
-// -------------------------form-------firebase------------------
+// -------------------------form-------firebase------------------ 
 // ------
 
-//Unique Firebase Object
+// Unique Firebase Object
 var firebaseConfig = {
   apiKey: "AIzaSyB_Jl_3FgNT7bHFRY63_e2FkfuqMkUJz5A",
   authDomain: "phantom-test-site-form.firebaseapp.com",
@@ -190,8 +200,12 @@ var firebaseConfig = {
   appId: "1:514732869106:web:b65039a4f2e1728aeb976b"
 };
 
-//Initialize Firebase---
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+// ------------------------- Initialize EmailJS with Public Key -------------------
+emailjs.init("2kZrD3IVCkNfJsW6w"); // Public Key from EmailJS
+// ------------------------- End of EmailJS Initialization ----------------------
 
 // -----------------------------------------------
 
@@ -203,85 +217,98 @@ const db = firestore.collection("formData");
 
 // -----------------------------------------------
 
-//Get Submit Form---popup--
-let submitButton = document.getElementById("submit");
+// Get Submit Form---popup--
+let submitButton = document.getElementById("submit");  // Ensure you have this ID on your submit button
+let spinner = document.getElementById("spinner");     // Spinner element
 
-//Create Event Listener To Allow Form Submission
-submitButton.addEventListener("click", (e) => {
-  //Prevent Default Form Submission Behavior
+// Create Event Listener To Allow Form Submission
+submitButton.addEventListener("click", function (e) {
+  // Prevent Default Form Submission Behavior
   e.preventDefault();
 
+  // Check if all fields are filled
   if (
     document.getElementById("name").value == "" ||
-    document.getElementById("phone").value == ""||
+    document.getElementById("phone").value == "" ||
     document.getElementById("country").value == "" ||
     document.getElementById("city").value == ""
-    // || document.getElementById("msg").value == ""
   ) {
-    alert("Fill All Fields !");
-  } else {
-    // -------------------------date-stamp------------------------
-    let sayDate = () => {
-      // Using Date() method
-      let dateTimeStamp = Date();
-
-      // Converting the number value to string
-      let DateTimeStampVal = dateTimeStamp.toString();
-      return "Form was submitted at: " + DateTimeStampVal;
-    };
-    let sayDateVal = sayDate();
-    //Get Form Values
-    let Name = document.getElementById("name").value;
-    let Phone = document.getElementById("phone").value;
-    let Email = document.getElementById("email").value;
-    let Enquiry = document.getElementById("enquiry").value;
-    let Country = document.getElementById("country").value;
-    let City = document.getElementById("city").value;
-    let Hospital = document.getElementById("hospital").value;
-    let sayDateValStamp = sayDateVal;
-
-    firestore
-      .collection("formData")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          const getName = doc.data().name;
-          if (Name === getName) {
-            console.log("Already Exists");
-          }
-
-          // console.log("data", doc.data().fname);
-        });
-      });
-    //  --------------------------------
-
-    //Save Form Data To Firebase
-    db.doc()
-      .set({
-        name: Name,
-        phone: Phone,
-        email: Email,
-        country:Country,
-        enquiry: Enquiry,
-        city: City,
-        hospital:Hospital,
-        sayDateVal: sayDateValStamp
-      })
-      .then(() => {})
-      .catch((error) => {
-        console.log(error);
-      });
-
-    //alert
-    alert("Your Form Has Been Submitted Successfully");
-
-    //clear form after submission
-    function clearForm() {
-      document.getElementById("clearFrom").reset();
-    }
-    clearForm();
+    alert("Fill All Fields!");
+    return; // Ensure that the form won't proceed without filling all fields
   }
+
+  // Show Spinner
+  spinner.style.display = "block";
+
+  // -------------------------date-stamp------------------------
+  let sayDate = () => {
+    // Using Date() method
+    let dateTimeStamp = Date();
+    // Converting the number value to string
+    let DateTimeStampVal = dateTimeStamp.toString();
+    return "Form was submitted at: " + DateTimeStampVal;
+  };
+  let sayDateVal = sayDate();
+
+  // Get Form Values
+  let Name = document.getElementById("name").value;
+  let Phone = document.getElementById("phone").value;
+  let Email = document.getElementById("email").value;
+  let Enquiry = document.getElementById("enquiry").value;
+  let Country = document.getElementById("country").value;
+  let City = document.getElementById("city").value;
+  let Hospital = document.getElementById("hospital").value;
+  let sayDateValStamp = sayDateVal;
+
+  // Save Form Data To Firebase
+  const firebaseSave = db.doc().set({
+    name: Name,
+    phone: Phone,
+    email: Email,
+    country: Country,
+    enquiry: Enquiry,
+    city: City,
+    hospital: Hospital,
+    sayDateVal: sayDateValStamp,
+  });
+
+  // Send email using EmailJS
+  const emailSend = emailjs.send("service_x2ysvvr", "template_0qgs9u9", {
+    name: Name,
+    phone: Phone,
+    email: Email,
+    country: Country,
+    city: City,
+    hospital: Hospital,
+    enquiry: Enquiry,
+  });
+
+  // Execute both Firebase save and EmailJS send concurrently
+  Promise.all([firebaseSave, emailSend])
+    .then((responses) => {
+      console.log("Firebase save response:", responses[0]);
+      console.log("EmailJS response:", responses[1]);
+      alert("Your Form Has Been Submitted Successfully");
+      clearForm(); // Clear form after successful submission
+    })
+    .catch((error) => {
+      console.error("Error during form submission:", error);
+      alert("Something went wrong. Please try again.");
+    })
+    .finally(() => {
+      // Hide Spinner
+      spinner.style.display = "none";
+    });
 });
+
+// Clear form function
+function clearForm() {
+  // Ensure this is the correct form ID
+  document.getElementById("clearFrom").reset();
+  console.log("Form cleared");
+}
+
+
 
 // ------------------------------------------------------------
 // ------------------------------------------------------------------------
@@ -646,3 +673,8 @@ var swiper = new Swiper(".slide-content", {
           });
       }
   });
+
+
+
+
+
