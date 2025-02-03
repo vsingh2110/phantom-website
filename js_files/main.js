@@ -1,5 +1,5 @@
 // ----select---counters--section--on--scroll----------
-
+console.log("main.js is running!");
 window.addEventListener("scroll", function () {
   var element = document.querySelector(".counters");
   var position = element.getBoundingClientRect();
@@ -99,44 +99,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // -----------------------owl carousel-----------------------------------------------
 
-$(".testmonial_slider_area").owlCarousel({
-  autoplay: true,
-  slideSpeed: 1000,
-  items: 4,
-  loop: true,
-  nav: true,
-  navText: [
-    '<i class="fa fa-arrow-left fa-2x"></i>',
-    '<i class="fa fa-arrow-right fa-2x"></i>'
-  ],
-  margin: 30,
-  dots: true,
-  responsive: {
-    320: {
-      items: 1
-    },
-    767: {
-      items: 2
-    },
-    600: {
-      items: 2
-    },
-    1000: {
-      items: 4
-    }
-  }
-});
+// $(".testmonial_slider_area").owlCarousel({
+//   autoplay: true,
+//   slideSpeed: 1000,
+//   items: 4,
+//   loop: true,
+//   nav: true,
+//   navText: [
+//     '<i class="fa fa-arrow-left fa-2x"></i>',
+//     '<i class="fa fa-arrow-right fa-2x"></i>'
+//   ],
+//   margin: 30,
+//   dots: true,
+//   responsive: {
+//     320: {
+//       items: 1
+//     },
+//     767: {
+//       items: 2
+//     },
+//     600: {
+//       items: 2
+//     },
+//     1000: {
+//       items: 4
+//     }
+//   }
+// });
 
 
 // Vanilla JavaScript version
-window.addEventListener('scroll', function () {
-  const navbar = document.querySelector('.navbar');
-  if (window.scrollY > 100) {
-      navbar.classList.add('nav-sticky');
-  } else {
-      navbar.classList.remove('nav-sticky');
-  }
-});
+// window.addEventListener('scroll', function () {
+//   const navbar = document.querySelector('.navbar');
+//   if (window.scrollY > 100) {
+//       navbar.classList.add('nav-sticky');
+//   } else {
+//       navbar.classList.remove('nav-sticky');
+//   }
+// });
 
 // ---------------------------Owl carousle code --ends-------------------------------
 
@@ -648,33 +648,45 @@ var swiper = new Swiper(".slide-content", {
 
 
 // ----polyfill popup loaded-google docs---
-    const dialog = document.querySelector('dialog');
-    dialogPolyfill.registerDialog(dialog);
+    // const dialog = document.querySelector('dialog');
+    // dialogPolyfill.registerDialog(dialog);
 
 
 
 
 
 // -----popup loaded---goggle docs---
+  // document.addEventListener("DOMContentLoaded", function () {
+  //     const modal = document.getElementById("modal");
+  //     const openButton = document.querySelector(".open-button");
+  //     const closeButton = document.querySelector(".close-button");
+
+  //     if (openButton) {
+  //         openButton.addEventListener("click", () => {
+  //             modal.showModal();
+  //         });
+  //     }
+
+  //     if (closeButton) {
+  //         closeButton.addEventListener("click", () => {
+  //             modal.close();
+  //         });
+  //     }
+  // });
+
+
+
+
+
   document.addEventListener("DOMContentLoaded", function () {
-      const modal = document.getElementById("modal");
-      const openButton = document.querySelector(".open-button");
-      const closeButton = document.querySelector(".close-button");
+    let submitButton = document.getElementById("submit");
+    console.log("Submit button found:", submitButton);
 
-      if (openButton) {
-          openButton.addEventListener("click", () => {
-              modal.showModal();
-          });
-      }
-
-      if (closeButton) {
-          closeButton.addEventListener("click", () => {
-              modal.close();
-          });
-      }
-  });
-
-
-
-
-
+    if (submitButton) {
+        submitButton.addEventListener("click", function (e) {
+            console.log("Submit button clicked");
+        });
+    } else {
+        console.error("Submit button NOT found! Check if it exists in the HTML.");
+    }
+});

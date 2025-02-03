@@ -16,6 +16,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // -----------------------------------------------
+// ------------------------- Initialize EmailJS with Public Key -------------------
+emailjs.init("2kZrD3IVCkNfJsW6w"); // Public Key from EmailJS
+// ------------------------- End of EmailJS 
 
 // ------for-firestore-cloud-database--------------------------------------------------------
 var firestore = firebase.firestore();
@@ -56,19 +59,19 @@ submitButton2.addEventListener("click", (e) => {
     let Enquiry = document.getElementById("enquiry2").value;
     let sayDateValStamp = sayDateVal;
 
-    firestore
-      .collection("formData")
-      .get()
-      .then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-          const getName = doc.data().name;
-          if (Name === getName) {
-            console.log("Already Exists");
-          }
+    // firestore
+    //   .collection("formData")
+    //   .get()
+    //   .then((snapshot) => {
+    //     snapshot.docs.forEach((doc) => {
+    //       const getName = doc.data().name;
+    //       if (Name === getName) {
+    //         console.log("Already Exists");
+    //       }
 
-          // console.log("data", doc.data().fname);
-        });
-      });
+    //       // console.log("data", doc.data().fname);
+    //     });
+    //   });
     //  --------------------------------
 
     //Save Form Data To Firebase
