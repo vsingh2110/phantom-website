@@ -182,7 +182,7 @@ dialog::backdrop {
   
   
   top: 5%;
-  left:20%;
+  margin: auto;
   height: 95vh;
   
 }
@@ -1484,6 +1484,25 @@ video {
   color: white;
   cursor: pointer;
 }
+
+.popup-contact{
+  
+  display: block;
+  width: 40%;
+  height: 6%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  text-align: center;
+  align-self: center;
+  font-size: 1.5rem;
+  padding: 0.2em;
+  color: #fff;
+  background: #259ae1;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
 
 .hero-call-us {
   text-align: center;
