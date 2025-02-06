@@ -200,8 +200,12 @@ var firebaseConfig = {
   appId: "1:514732869106:web:b65039a4f2e1728aeb976b"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+// Ensure Firebase is initialized only once
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app(); // Use the existing initialized app
+}
 
 // ------------------------- Initialize EmailJS with Public Key -------------------
 emailjs.init("2kZrD3IVCkNfJsW6w"); // Public Key from EmailJS
@@ -233,7 +237,7 @@ submitButton.addEventListener("click", function (e) {
     document.getElementById("country").value == "" ||
     document.getElementById("city").value == ""
   ) {
-    alert("Fill All Fields!");
+    alert("Fill Required Fields!");
     return; // Ensure that the form won't proceed without filling all fields
   }
 
