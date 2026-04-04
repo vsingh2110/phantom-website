@@ -2660,6 +2660,31 @@ textarea {
   margin: auto;
 }
 
+.iria-2024 .iria-image-desktop {
+  display: block !important;
+  width: min(95%, 1200px);
+  margin: 0 auto;
+}
+
+.iria-2024 .iria-image-desktop img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+}
+
+.iria-2024 .iria-image-mobile {
+  display: none !important;
+}
+
+.iria-2024 .iria-image-mobile img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
 
 .iria-heading {
   /* position: absolute; */
@@ -2676,12 +2701,54 @@ textarea {
 
 @media screen and (max-width: 1000px){
  
-  .iria-heading {
-    
-      font-size: 3rem;
-      
+  .iria-2024 .iria-heading {
+      font-size: 2.4rem;
+      line-height: 1.3;
+      padding: 0 1rem;
   }
   
+}
+
+@media screen and (max-width: 768px){
+  .iria-2024 .iria-heading {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 500px){
+  .iria-2024 .iria-heading {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    padding: 0 0.9rem;
+  }
+
+  .iria-2024 .iria-image-desktop {
+    display: none !important;
+  }
+
+  .iria-2024 .iria-image-mobile {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 380px){
+  .iria-2024 .iria-heading {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    padding: 0 0.8rem;
+  }
+
+  .iria-2024 .iria-image-mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .iria-2024 .iria-image-mobile img {
+    height: 170px;
+  }
 }
 
 
