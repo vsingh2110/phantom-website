@@ -2681,8 +2681,8 @@ textarea {
 .iria-2024 .iria-image-mobile img {
   display: block;
   width: 100%;
-  height: 190px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 
@@ -2724,12 +2724,23 @@ textarea {
 
   .iria-2024 .iria-image-desktop {
     display: none !important;
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+  }
+
+  .iria-2024 .iria-image-desktop picture,
+  .iria-2024 .iria-image-desktop img {
+    display: none !important;
   }
 
   .iria-2024 .iria-image-mobile {
     display: grid !important;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     width: 95%;
     margin: 0 auto;
   }
@@ -2742,13 +2753,6 @@ textarea {
     padding: 0 0.8rem;
   }
 
-  .iria-2024 .iria-image-mobile {
-    grid-template-columns: 1fr;
-  }
-
-  .iria-2024 .iria-image-mobile img {
-    height: 170px;
-  }
 }
 
 
